@@ -3,7 +3,7 @@
     "icon": {
       "name": "Tina",
       "color": "orange",
-      "style": "float"
+      "style": "circle"
     },
     "name": "Tina Starter",
     "color": "default",

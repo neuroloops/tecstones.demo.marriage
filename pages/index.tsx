@@ -1,14 +1,8 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
+import { Layout } from "@/components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
-// import Head from "next/head";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "123Afg Marriage",
-  description: "welcome to afg marriage",
-};
+import Head from "next/head";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -21,9 +15,9 @@ export default function Home(props) {
   const content = data.page.body;
   return (
     <Layout>
-      {/* <Head>
+      <Head>
         <title>Afg marriage</title>
-      </Head> */}
+      </Head>
       <div data-tina-field={tinaField(data.page, "body")}>
         <TinaMarkdown content={content} />
       </div>

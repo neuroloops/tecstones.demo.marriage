@@ -24,9 +24,19 @@ export default function Home(props) {
 // This is an example of a page generated with Serverside Rendering.
 // This can be switched to a static page by using getStaticProps
 export const getServerSideProps = async ({ params }) => {
-  const { data, query, variables } = await client.queries.page({
-    relativePath: `${params.slug}.mdx`,
-  });
+  const tryPageExist = async () => {
+    try {
+      return await client.queries.page({
+        relativePath: `${params.slug}.mdx`,
+      });
+    } catch (error) {
+      return await client.queries.page({
+        relativePath: `home.mdx`,
+      });
+    }
+  };
+
+  const { data, query, variables } = await tryPageExist();
 
   return {
     props: {

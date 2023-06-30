@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 import Head from "next/head";
+import Hero from "@/components/Hero";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -18,6 +19,7 @@ export default function Home(props) {
       <Head>
         <title>Afg marriage</title>
       </Head>
+      <Hero></Hero>
       <div data-tina-field={tinaField(data.page, "body")}>
         <TinaMarkdown content={content} />
       </div>

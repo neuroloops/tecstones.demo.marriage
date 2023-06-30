@@ -23,7 +23,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <h1 className={`${gwendolyn.className} pt-5 text-8xl`}>Afg Marriage</h1>
         <Navbar />
       </header>
-      <main className="max-w-xl">{children}</main>
+      <main className="h-screen">{children}</main>
       <Footer />
     </div>
   );

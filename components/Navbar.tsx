@@ -19,6 +19,7 @@ const Navbar = () => {
             {link}
           </li>
         ))}
+        <Link href="#footer">footer</Link>
       </ul>
     </nav>
   );

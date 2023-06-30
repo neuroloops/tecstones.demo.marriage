@@ -1,11 +1,12 @@
 import { cardo } from "@/utils/fonts";
 
 export const Footer = () => {
-  const h3 = "text-2xl " + cardo.className;
+  const h3 = "text-2xl pb-4 " + cardo.className;
+
   return (
-    <footer>
-      <div className="flex justify-between gap-4 text-sm text-gray-400">
-        <div>
+    <footer id="footer" className="p-4">
+      <div className="flex justify-between gap-4 pr-24 text-sm text-gray-500">
+        <div className="basis-1/3">
           <h3 className={h3}>Afg Marriage</h3>
           <p>
             We're Tilia, a team of photographers & videographers. Sed ut
@@ -47,8 +48,8 @@ export const Footer = () => {
           </ul>
         </div>
       </div>
-      <p className="mt-20">
-        ©{new Date().getFullYear()} All Rights Reserved Developed By TecsTones
+      <p className="mt-20 pb-6 text-center text-gray-500">
+        ©{new Date().getFullYear()} All Rights Reserved. Developed By TecsTones
       </p>
     </footer>
   );

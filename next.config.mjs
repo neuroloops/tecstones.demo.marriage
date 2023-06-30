@@ -1,4 +1,6 @@
-module.exports = {
+/** @type {import("next").NextConfig} */
+
+export default {
   async rewrites() {
     return [
       {

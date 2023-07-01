@@ -1,16 +1,18 @@
 // import Head from "next/head";
-import { gwendolyn, roboto, cardo } from "@/utils/fonts";
-import Navbar from "./Navbar";
-import Head from "next/head";
-import { Metadata } from "next";
-import Footer from "./Footer";
+import { cardo, gwendolyn, roboto } from "@/utils/fonts"
+import { Metadata } from "next"
+import Head from "next/head"
+
+import { client } from "../../tina/__generated__/client"
+import Footer from "./Footer"
+import Navbar from "./Navbar"
 
 export const metadata: Metadata = {
   title: "title Afg Marriage",
   description: "welcome to afg marriage",
-};
+}
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className={`${roboto.className}  flex min-h-screen flex-col items-center justify-between `}
@@ -26,5 +28,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="h-screen">{children}</main>
       <Footer />
     </div>
-  );
-};
+  )
+}
+
+export default Layout

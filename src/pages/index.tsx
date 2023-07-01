@@ -1,7 +1,9 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
+import { Layout } from "@/components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { client } from "../tina/__generated__/client";
+import { client } from "../../tina/__generated__/client";
+import Head from "next/head";
+import Hero from "@/components/Hero";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -14,6 +16,10 @@ export default function Home(props) {
   const content = data.page.body;
   return (
     <Layout>
+      <Head>
+        <title>Afg marriage</title>
+      </Head>
+      <Hero></Hero>
       <div data-tina-field={tinaField(data.page, "body")}>
         <TinaMarkdown content={content} />
       </div>
@@ -21,28 +27,17 @@ export default function Home(props) {
   );
 }
 
-// This is an example of a page generated with Serverside Rendering.
-// This can be switched to a static page by using getStaticProps
-export const getServerSideProps = async ({ params }) => {
-  const tryPageExist = async () => {
-    try {
-      return await client.queries.page({
-        relativePath: `${params.slug}.mdx`,
-      });
-    } catch (error) {
-      return await client.queries.page({
-        relativePath: `home.mdx`,
-      });
-    }
-  };
-
-  const { data, query, variables } = await tryPageExist();
+export const getStaticProps = async () => {
+  const { data, query, variables } = await client.queries.page({
+    relativePath: "home.mdx",
+  });
 
   return {
     props: {
       data,
       query,
       variables,
+      //myOtherProp: 'some-other-data',
     },
   };
 };

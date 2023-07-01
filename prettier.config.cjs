@@ -1,6 +1,6 @@
 /** @type {import("prettier").Config} */
 
-export default {
+module.exports = {
   plugins: [require.resolve('prettier-plugin-tailwindcss')],
   "semi": false
 }

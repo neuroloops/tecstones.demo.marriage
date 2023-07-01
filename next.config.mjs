@@ -7,6 +7,11 @@ export default {
         source: '/admin',
         destination: '/admin/index.html',
       },
+
     ]
+  },
+  i18n: {
+    locales: ["en", "ps_AF"],
+    defaultLocale: "en",
   },
 }

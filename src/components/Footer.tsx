@@ -1,7 +1,7 @@
-import { cardo } from "@/utils/fonts";
+import { cardo } from "@/utils/fonts"
 
 export const Footer = () => {
-  const h3 = "text-2xl pb-4 " + cardo.className;
+  const h3 = "text-2xl pb-4 " + cardo.className
 
   return (
     <footer id="footer" className="p-4">
@@ -52,7 +52,7 @@ export const Footer = () => {
         ©{new Date().getFullYear()} All Rights Reserved. Developed By TecsTones
       </p>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

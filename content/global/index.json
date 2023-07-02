@@ -1,0 +1,14 @@
+{
+  "facebook": "https://www.facebook.com/",
+  "twitter": "/",
+  "instagram": "/",
+  "NavLink": {
+    "nav": [
+      {
+        "href": "home",
+        "label": "Home"
+      }
+    ]
+  },
+  "title": "AFG Marriage"
+}

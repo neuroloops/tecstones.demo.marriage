@@ -1,36 +1,54 @@
 // import Head from "next/head";
 import { cardo, gwendolyn, roboto } from "@/utils/fonts"
-
 import Head from "next/head"
+import { useTina } from "tinacms/dist/react"
+import layoutData from "../../content/global/index.json"
+import { client } from "../../tina/__generated__/client"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
-import Hero from "./blocks/Hero"
 
-const Layout = ({
-  children,
-  head,
-}: {
-  children: React.ReactNode
-  head: string
-}) => {
+const Layout = (props: any) => {
+  const { children, head } = props
+
+  const data = layoutData
+
   return (
-    <div
-      className={`${roboto.className}  flex min-h-screen flex-col items-center justify-between bg-white`}
-    >
+    <>
       <Head>
-        <meta name="description" content="afg marriage" />
+        <meta name="description" content={data.title} />
         <link rel="icon" href="/favicon.ico" />
         <title>{head}</title>
       </Head>
-      <header className="text-emerald-700">
-        <h1 className={`${gwendolyn.className} pt-5 text-8xl`}>Afg Marriage</h1>
-        <Navbar />
-      </header>
-      <Hero />
-      <main className="h-screen">{children}</main>
-      <Footer />
-    </div>
+      <div
+        className={`${roboto.className}  flex min-h-screen flex-col items-center justify-between bg-white`}
+      >
+        <header className="text-emerald-700">
+          <h1 className={`${gwendolyn.className} pt-5 text-8xl`}>
+            {data.title}
+          </h1>
+          <Navbar />
+        </header>
+
+        <main className="w-screen">{children}</main>
+        <Footer />
+      </div>
+    </>
   )
 }
 
 export default Layout
+
+export const getStaticProps = async () => {
+  const { data, query, variables } = await client.queries.page({
+    relativePath: "global/index.json",
+  })
+
+  return {
+    props: {
+      data,
+      query,
+      variables,
+      //myOtherProp: 'some-other-data',
+    },
+  }
+}

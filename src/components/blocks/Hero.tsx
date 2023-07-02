@@ -1,14 +1,25 @@
-import { gwendolyn, roboto, cardo } from "../../utils/fonts"
+// import { gwendolyn, roboto, cardo } from "@/utils/fonts"
+import Image from "next/image"
 import { Template } from "tinacms"
 
-const Hero = () => {
+//  ${cardo.className}
+
+const Hero = ({ data }: any) => {
+  const { tagline, headline, image } = data
+
   return (
-    <div className={`${cardo.className} text-center`}>
-      <span className="text-base">A marriage Ceremony</span>
-      <h1 className="text-5xl">Best Life Partner</h1>
-      <button className="border border-solid border-black bg-white px-4 py-2 text-xxs uppercase">
-        Read More
-      </button>
+    <div
+      className="hero min-h-screen w-full "
+      style={{ backgroundImage: `url(${image.src})` }}
+    >
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content text-center text-white">
+        <div className="max-w-md">
+          <p className="mb-5">{tagline}</p>
+          <h1 className="mb-5 text-5xl font-bold">{headline}</h1>
+          <button className="glass btn text-white">Get Started</button>
+        </div>
+      </div>
     </div>
   )
 }
@@ -22,7 +33,6 @@ export const heroBlockSchema: Template = {
     defaultItem: {
       tagline: "Here's some text above the other text",
       headline: "This Big Text is Totally Awesome",
-      text: "Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo.",
     },
   },
   fields: [
@@ -36,12 +46,6 @@ export const heroBlockSchema: Template = {
       label: "Headline",
       name: "headline",
     },
-    {
-      label: "Text",
-      name: "text",
-      type: "rich-text",
-    },
-
     {
       type: "object",
       label: "Image",

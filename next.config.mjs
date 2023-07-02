@@ -14,4 +14,14 @@ export default {
     locales: ["en", "ps_AF"],
     defaultLocale: "en",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+
+      },
+    ],
+  },
 }

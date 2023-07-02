@@ -1,9 +1,9 @@
-import Hero from "@/components/Hero"
 import Layout from "@/components/Layout"
 import Head from "next/head"
 import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
+import { Blocks } from "../components/blocks-renderer"
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -12,15 +12,14 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   })
-
+  console.log(data)
   const { title, body } = data.page
-
   return (
     <Layout head={title}>
       <Head data-tina-field={tinaField(data.page, "title")}>
         <TinaMarkdown content={title} />
       </Head>
-      <Hero />
+      <Blocks {...data.page} />
 
       <h2 data-tina-field={tinaField(data.page, "title")}>
         <TinaMarkdown content={title} />
@@ -43,7 +42,7 @@ export const getStaticProps = async () => {
   const { data, query, variables } = await client.queries.page({
     relativePath: "home.mdx",
   })
-
+  // console.log(data)
   return {
     props: {
       data,

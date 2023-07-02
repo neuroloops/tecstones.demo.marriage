@@ -12,7 +12,7 @@ const navItems: Array<string> = [
 
 const Navbar = () => {
   return (
-    <nav className="py-10">
+    <nav className=" py-10">
       <ul className="flex justify-between">
         {navItems.map((link: string, index: number) => (
           <li key={index} className="cursor-pointer uppercase">

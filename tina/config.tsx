@@ -1,3 +1,4 @@
+import { heroBlockSchema } from "@/components/blocks/Hero"
 import { defineConfig } from "tinacms"
 
 // Your hosting provider likely exposes this as an environment variable
@@ -14,8 +15,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "public",
+      mediaRoot: "media",
+      publicFolder: "public/upload",
     },
   },
   schema: {
@@ -24,6 +25,7 @@ export default defineConfig({
         name: "page",
         label: "Pages",
         path: "content",
+        format: "mdx",
         fields: [
           {
             type: "string",
@@ -38,6 +40,16 @@ export default defineConfig({
             label: "Body",
             isBody: true,
           },
+          // {
+          //   type: "object",
+          //   list: true,
+          //   name: "blocks",
+          //   label: "Sections",
+          //   ui: {
+          //     visualSelector: true,
+          //   },
+          //   templates: [heroBlockSchema],
+          // },
         ],
         ui: {
           // This is an DEMO router. You can remove this to fit your site

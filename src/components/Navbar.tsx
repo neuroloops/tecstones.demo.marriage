@@ -1,5 +1,5 @@
 // import React from "react";
-import Link from "next/link";
+import Link from "next/link"
 
 const navItems: Array<string> = [
   "Home",
@@ -8,7 +8,7 @@ const navItems: Array<string> = [
   "shop",
   "about",
   "contact",
-];
+]
 
 const Navbar = () => {
   return (
@@ -19,10 +19,10 @@ const Navbar = () => {
             {link}
           </li>
         ))}
-        <Link href="#footer">footer</Link>
+        <Link href="#footer">Footer</Link>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

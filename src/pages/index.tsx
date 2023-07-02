@@ -13,23 +13,22 @@ export default function Home(props) {
     data: props.data,
   })
 
-  const content = data.page.body
-  const title = data.page.title
-  console.log(data.page.title)
+  const { title, body } = data.page
+
   return (
-    <Layout>
-      <Head>
-        <title>Afg marriage</title>
+    <Layout head={title}>
+      <Head data-tina-field={tinaField(data.page, "title")}>
+        <TinaMarkdown content={title} />
       </Head>
       <Hero />
 
-      <div data-tina-field={tinaField(data.page, "title")}>
+      <h2 data-tina-field={tinaField(data.page, "title")}>
         <TinaMarkdown content={title} />
         {title}
-      </div>
+      </h2>
 
       <div data-tina-field={tinaField(data.page, "body")}>
-        <TinaMarkdown content={content} />
+        <TinaMarkdown content={body} />
       </div>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum cum
@@ -42,7 +41,7 @@ export default function Home(props) {
 
 export const getStaticProps = async () => {
   const { data, query, variables } = await client.queries.page({
-    relativePath: "home.md",
+    relativePath: "home.mdx",
   })
 
   return {

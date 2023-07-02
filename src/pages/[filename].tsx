@@ -5,6 +5,7 @@ import Head from "next/head"
 import { useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import client from "../../tina/__generated__/client"
+import Layout from "@/components/Layout"
 
 const BlogPage = (props: any) => {
   const { data } = useTina({
@@ -12,9 +13,9 @@ const BlogPage = (props: any) => {
     variables: props.variables,
     data: props.data,
   })
-
+  const { title, body } = data.page
   return (
-    <>
+    <Layout head={title}>
       <div>
         <div
           style={{
@@ -22,9 +23,9 @@ const BlogPage = (props: any) => {
           }}
         >
           <h1 className="m-8 text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
-            {data.page.title}
+            {data.page?.title}
           </h1>
-          <ContentSection content={data.page.body}></ContentSection>
+          <ContentSection content={data.page?.body}></ContentSection>
         </div>
         <div className="bg-green-100 text-center">
           Lost and looking for a place to start?
@@ -38,14 +39,15 @@ const BlogPage = (props: any) => {
           to see how add TinaCMS to an existing Next.js site.
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   let data = {}
   let query = {}
-  let variables = { relativePath: `${params.filename}.md` }
+  let variables = { relativePath: `${params.filename}.mdx` }
+
   try {
     const res = await client.queries.page(variables)
     query = res.query

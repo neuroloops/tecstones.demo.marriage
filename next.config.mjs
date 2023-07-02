@@ -5,7 +5,7 @@ export default {
     return [
       {
         source: '/admin',
-        destination: '/admin/index.html',
+        destination: '/admin',
       },
 
     ]

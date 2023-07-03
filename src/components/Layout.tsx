@@ -11,7 +11,8 @@ const Layout = (props: any) => {
   const { children, head } = props
 
   const data = layoutData
-
+  const { NODE_ENV } = process.env
+  const debug = NODE_ENV === "development" ? "debug-screens" : null
   return (
     <>
       <Head>
@@ -29,7 +30,7 @@ const Layout = (props: any) => {
           <Navbar />
         </header>
 
-        <main className="w-screen">{children}</main>
+        <main className={`${debug} w-screen`}>{children}</main>
         <Footer />
       </div>
     </>

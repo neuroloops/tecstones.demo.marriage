@@ -1,5 +1,6 @@
-import { heroBlockSchema } from "../src/components/blocks/Hero"
 import { defineConfig } from "tinacms"
+import { heroBlockSchema } from "../src/components/blocks/Hero"
+import { TestimonialBlockSchema } from "../src/components/blocks/Testimonial"
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main"
@@ -113,7 +114,7 @@ export default defineConfig({
             ui: {
               visualSelector: true,
             },
-            templates: [heroBlockSchema],
+            templates: [heroBlockSchema, TestimonialBlockSchema],
           },
         ],
         ui: {

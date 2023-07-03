@@ -2,9 +2,9 @@
 import Image from "next/image"
 import { Template } from "tinacms"
 
-//  ${cardo.className}
+import { PageBlocksHero } from "../../../tina/__generated__/types"
 
-const Hero = ({ data }: any) => {
+const Hero = ({ data }: { data: PageBlocksHero }) => {
   const { tagline, headline, image } = data
 
   return (

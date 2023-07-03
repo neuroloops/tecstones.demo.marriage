@@ -1,5 +1,6 @@
 import type { Page, PageBlocks } from "../../tina/__generated__/types"
 import Hero from "./blocks/Hero"
+import Testimonial from "./blocks/Testimonial"
 
 import { tinaField } from "tinacms/dist/react"
 
@@ -23,6 +24,8 @@ const Block = (block: PageBlocks) => {
   switch (block.__typename) {
     case "PageBlocksHero":
       return <Hero data={block} />
+    case "PageBlocksTestimonial":
+      return <Testimonial data={block} />
 
     default:
       return null

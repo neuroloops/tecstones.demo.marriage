@@ -12,7 +12,7 @@ const Layout = (props: any) => {
 
   const data = layoutData
   const { NODE_ENV } = process.env
-  const debug = NODE_ENV === "development" ? "debug-screens" : null
+  const debug = NODE_ENV === "development" ? "debug-screens" : ""
   return (
     <>
       <Head>

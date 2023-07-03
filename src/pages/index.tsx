@@ -12,8 +12,9 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   })
-  console.log(data)
+
   const { title, body } = data.page
+
   return (
     <Layout head={title}>
       <Head data-tina-field={tinaField(data.page, "title")}>
@@ -29,11 +30,6 @@ export default function Home(props) {
       <div data-tina-field={tinaField(data.page, "body")}>
         <TinaMarkdown content={body} />
       </div>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum cum
-        quaerat fugiat ullam mollitia dolores deleniti voluptatem debitis
-        laborum aspernatur.
-      </p>
     </Layout>
   )
 }
@@ -42,7 +38,7 @@ export const getStaticProps = async () => {
   const { data, query, variables } = await client.queries.page({
     relativePath: "home.mdx",
   })
-  // console.log(data)
+
   return {
     props: {
       data,

@@ -1,6 +1,6 @@
 /** @type {import("next").NextConfig} */
 
-export default {
+const config = {
   async rewrites() {
     return [
       {
@@ -24,4 +24,10 @@ export default {
       },
     ],
   },
+  eslint: {
+    dirs: ['tina', 'src'],
+  },
 }
+
+
+export default config

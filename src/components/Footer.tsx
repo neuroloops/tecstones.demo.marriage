@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="basis-1/3">
           <h3 className={h3}>Afg Marriage</h3>
           <p>
-            We're Tilia, a team of photographers & videographers. Sed ut
+            We&apos;re Tilia, a team of photographers & videographers. Sed ut
             perspiciatis unde omnis iste natus error sit voluptatem accusantium
             doloremque laudantium. Est sale definitiones id. Ut quo quem harum
             munere, eu labore voluptatum mei.

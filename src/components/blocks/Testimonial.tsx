@@ -4,6 +4,13 @@ import { Template } from "tinacms"
 import { tinaField } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { PageBlocksTestimonial } from "../../../tina/__generated__/types"
+
+type TestimonialTs = {
+  author: string
+  image: { src: string; url: string }
+  quote: string
+}
+
 const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   const { testimonials } = data
 
@@ -11,7 +18,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
     <section className="body-font text-gray-600">
       <div className="container mx-auto px-5 py-24">
         <div className="-m-4 flex flex-wrap">
-          {testimonials.map((testimonial: any, key: number) => {
+          {testimonials.map((testimonial: TestimonialTs, key: number) => {
             const { author, image, quote } = testimonial
 
             const imgSrc =
@@ -20,14 +27,20 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
               "https://i.pravatar.cc/150?u=fake@" + author
 
             return (
-              <div className="mb-6 p-4 lg:mb-0 lg:w-1/3" key={key}>
+              <div
+                className="mb-6 w-full p-4 sm:w-1/2 lg:mb-0 lg:w-1/3"
+                key={key}
+              >
                 <div
                   className="h-full text-center"
                   data-tina-field={tinaField(testimonial, "image")}
                 >
-                  <img
+                  <Image
+                    // fill={true}
+                    height={150}
+                    width={150}
                     alt="testimonial"
-                    className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center"
+                    className="mb-8 inline-block h-36 w-36 rounded-full border-2 border-gray-200 bg-gray-100 object-center"
                     src={imgSrc}
                   />
                   {quote && (
@@ -36,7 +49,12 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
                         className="leading-relaxed"
                         data-tina-field={tinaField(testimonial, "quote")}
                       >
-                        <TinaMarkdown content={quote} />
+                        <TinaMarkdown
+                          content={{
+                            type: "",
+                            children: [],
+                          }}
+                        />
                         {quote}
                       </div>
                       <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
@@ -46,7 +64,12 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
                     className="title-font text-sm font-medium tracking-wider text-gray-900"
                     data-tina-field={tinaField(testimonial, "author")}
                   >
-                    <TinaMarkdown content={author} />
+                    <TinaMarkdown
+                      content={{
+                        type: "",
+                        children: [],
+                      }}
+                    />
                     {author}
                   </h2>
                 </div>

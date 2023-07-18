@@ -5,21 +5,21 @@ const navItems: Array<string> = [
   "Home",
   "galleries",
   "blog",
-  "shop",
+  "testimonial",
   "about",
   "contact",
+  "footer",
 ]
 
 const Navbar = () => {
   return (
     <nav className=" py-10">
-      <ul className="flex justify-between">
+      <ul className="flex justify-between gap-4">
         {navItems.map((link: string, index: number) => (
           <li key={index} className="cursor-pointer uppercase">
-            {link}
+            <Link href={`#${link}`}>{link}</Link>
           </li>
         ))}
-        <Link href="#footer">Footer</Link>
       </ul>
     </nav>
   )

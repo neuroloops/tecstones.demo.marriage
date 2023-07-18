@@ -15,7 +15,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   const { testimonials } = data
 
   return (
-    <section className="body-font text-gray-600">
+    <section className="body-font text-gray-600" id="testimonial">
       <div className="container mx-auto px-5 py-24">
         <div className="-m-4 flex flex-wrap">
           {testimonials.map((testimonial: TestimonialTs, key: number) => {

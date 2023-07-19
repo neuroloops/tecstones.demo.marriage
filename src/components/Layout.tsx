@@ -1,17 +1,20 @@
 // import Head from "next/head";
-import { cardo, gwendolyn, roboto } from "@/utils/fonts"
+import { fonts } from "@/utils/fonts"
 import Head from "next/head"
 import { useTina } from "tinacms/dist/react"
 import layoutData from "../../content/global/index.json"
 import { client } from "../../tina/__generated__/client"
 import Footer from "./Footer"
-import Navbar from "./Navbar"
+
+import Header from "./Header"
 
 const Layout = (props: any) => {
   const { children, head } = props
 
   const data = layoutData
   const { NODE_ENV } = process.env
+
+  //display debug screens if in development
   const debug = NODE_ENV === "development" ? "debug-screens" : ""
   return (
     <>
@@ -21,16 +24,11 @@ const Layout = (props: any) => {
         <title>{head}</title>
       </Head>
       <div
-        className={`${roboto.className}  flex min-h-screen flex-col items-center justify-between bg-white`}
+        className={`${fonts.roboto} flex min-h-screen w-screen flex-col items-center justify-between bg-white ${debug}`}
       >
-        <header className="text-emerald-700">
-          <h1 className={`${gwendolyn.className} pt-5 text-8xl`}>
-            {data.title}
-          </h1>
-          <Navbar />
-        </header>
+        <Header data={data} />
 
-        <main className={`${debug} w-screen`}>{children}</main>
+        {/* <main className={`${debug} w-screen`}>{children}</main> */}
         <Footer />
       </div>
     </>

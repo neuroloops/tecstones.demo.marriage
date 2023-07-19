@@ -5,7 +5,7 @@ import { tinaField } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { PageBlocksTestimonial } from "../../../tina/__generated__/types"
 
-type TestimonialTs = {
+type iTestimonial = {
   author: string
   image: { src: string; url: string }
   quote: string
@@ -18,7 +18,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
     <section className="body-font text-gray-600" id="testimonial">
       <div className="container mx-auto px-5 py-24">
         <div className="-m-4 flex flex-wrap">
-          {testimonials.map((testimonial: TestimonialTs, key: number) => {
+          {testimonials.map((testimonial: iTestimonial, key: number) => {
             const { author, image, quote } = testimonial
 
             const imgSrc =
@@ -64,12 +64,6 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
                     className="title-font text-sm font-medium tracking-wider text-gray-900"
                     data-tina-field={tinaField(testimonial, "author")}
                   >
-                    <TinaMarkdown
-                      content={{
-                        type: "",
-                        children: [],
-                      }}
-                    />
                     {author}
                   </h2>
                 </div>

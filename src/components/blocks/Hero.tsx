@@ -1,7 +1,4 @@
-// import { gwendolyn, roboto, cardo } from "@/utils/fonts"
-
 import { Template } from "tinacms"
-
 import { useState } from "react"
 import {
   PageBlocksHero,
@@ -10,12 +7,11 @@ import {
 
 const Hero = ({ data }: { data: PageBlocksHero }) => {
   const [index, setIndex] = useState(0)
-  console.log(data.HeroCards.length)
-  // const { tagline, headline, image } = data
+
   const changeIndex = (index: number) => {
     const maxLength = data.HeroCards.length
     setIndex(index)
-    if (index > maxLength) setIndex(0)
+    if (index === maxLength) setIndex(0)
     if (index < 0) setIndex(maxLength - 1)
   }
 
@@ -64,7 +60,7 @@ const Hero = ({ data }: { data: PageBlocksHero }) => {
 
 export default Hero
 
-export const heroBlockSchema: Template = {
+export const HeroBlockSchema: Template = {
   name: "hero",
   label: "Hero",
   fields: [

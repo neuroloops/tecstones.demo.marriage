@@ -1,11 +1,9 @@
-// THIS FILE HAS BEEN GENERATED WITH THE TINA CLI.
-// This is a demo file once you have tina setup feel free to delete this file
-
+import Layout from "@/components/Layout"
+import { Blocks } from "@/components/blocks-renderer"
 import Head from "next/head"
-import { useTina } from "tinacms/dist/react"
+import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import client from "../../tina/__generated__/client"
-import Layout from "@/components/Layout"
 
 const BlogPage = (props: any) => {
   const { data } = useTina({
@@ -16,28 +14,18 @@ const BlogPage = (props: any) => {
   const { title, body } = data.page
   return (
     <Layout head={title}>
-      <div>
-        <div
-          style={{
-            textAlign: "center",
-          }}
-        >
-          <h1 className="m-8 text-center text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
-            {data.page?.title}
-          </h1>
-          <ContentSection content={data.page?.body}></ContentSection>
-        </div>
-        <div className="bg-green-100 text-center">
-          Lost and looking for a place to start?
-          <a
-            href="https://tina.io/guides/tina-cloud/getting-started/overview/"
-            className="text-blue-500 underline"
-          >
-            {" "}
-            Check out this guide
-          </a>{" "}
-          to see how add TinaCMS to an existing Next.js site.
-        </div>
+      <Head data-tina-field={tinaField(data.page, "title")}>
+        <TinaMarkdown content={title} />
+      </Head>
+      <Blocks {...data.page} />
+
+      <h2 data-tina-field={tinaField(data.page, "title")}>
+        <TinaMarkdown content={title} />
+        {title}
+      </h2>
+
+      <div data-tina-field={tinaField(data.page, "body")}>
+        <TinaMarkdown content={body} />
       </div>
     </Layout>
   )

@@ -6,10 +6,10 @@ import { LuMail } from "react-icons/lu"
 import { EnvelopeClosedIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons"
 
 const Header = ({ data }) => {
-  const bgMain = "bg-main "
+  const bgMain = "bg-main-500"
 
-  const bgTransparent = "bg-gradient-to-b from-gray-500/80 to-transparent"
-  // const bgTransparent = "bg-transparent"
+  const bgTransparent = "bg-gradient-to-b from-gray-500/80 to-transparent "
+  // const bgTransparent = "bg-blend-darken"
 
   const [bgColor, setBgColor] = useState(bgTransparent)
 

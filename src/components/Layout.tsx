@@ -9,6 +9,7 @@ import Footer from "./Footer"
 import { FaBeer } from "react-icons/fa"
 import { FcAndroidOs } from "react-icons/fc"
 import Header from "./Header"
+import Buttons from "./Buttons"
 
 const Layout = (props: any) => {
   const { children, head } = props
@@ -35,7 +36,7 @@ const Layout = (props: any) => {
           width={904}
           height={296}
           alt="background image"
-          // className="w-screen "
+          className="w-screen "
         />
         <div className=" mt-36 h-screen">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente,
@@ -49,6 +50,7 @@ const Layout = (props: any) => {
             <span>fdfds</span>
           </p>
         </div>
+        <Buttons data="test">Enquire Now </Buttons>
         <Footer />
 
         {/* <main className={`${debug} w-screen`}>{children}</main> */}

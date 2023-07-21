@@ -1,5 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 /** @type {import('tailwindcss').Config} */
+const Color = require('color')
+
+// const darken = (clr, val) => Color(clr).darken(val).hex()
 
 export default {
   content: [
@@ -11,7 +14,12 @@ export default {
         xxs: ['8px', '11px']
       },
       colors: {
-        'main': '#ff5033'
+
+        'main': {
+          500: 'hsl(9, 100%, 60%)',
+          800: 'hsl(9, 100%, 45%)',
+        }
+
 
       }
 

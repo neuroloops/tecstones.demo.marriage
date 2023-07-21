@@ -1,17 +1,51 @@
-import Navbar from "./Navbar"
 import Image from "next/image"
-import { fonts } from "@/utils/fonts"
+import { useState } from "react"
+import Navbar from "./Navbar"
+
+import { LuMail } from "react-icons/lu"
+import { EnvelopeClosedIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons"
 
 const Header = ({ data }) => {
-  console.log(data)
+  const bgMain = "bg-main "
+
+  const bgTransparent = "bg-gradient-to-b from-gray-500/80 to-transparent"
+  // const bgTransparent = "bg-transparent"
+
+  const [bgColor, setBgColor] = useState(bgTransparent)
+
+  const [visible, setVisible] = useState("flex")
+
+  if (typeof window !== `undefined`) {
+    const changeBackground = () => {
+      if (window.scrollY != 0) {
+        setBgColor(bgMain)
+        setVisible("hidden")
+      } else {
+        setBgColor(bgTransparent)
+        setVisible("flex")
+      }
+    }
+
+    window.addEventListener("scroll", changeBackground)
+  }
+
   return (
-    <header className="w-screen bg-main  text-white">
-      <div className="mx-auto ">
-        <div className="flex w-full justify-between px-32 pt-2">
+    <header
+      className={`fixed flex w-screen text-white transition-all duration-1000 ${bgColor}`}
+    >
+      <div className=" mx-auto">
+        <div
+          className={`${visible} w-full justify-between px-32 pt-2 transition-all duration-1000`}
+        >
           <div>social medias</div>
-          <div>email</div>
+          <div className="w-fill">
+            <p className="flex items-center gap-2 ">
+              <EnvelopeClosedIcon />
+              name@email.com
+            </p>
+          </div>
         </div>
-        <div className="mx-auto flex w-full max-w-7xl pt-8">
+        <div className={`mx-auto flex w-full max-w-7xl py-4`}>
           <Image
             src="/logo.webp"
             width={904}
@@ -19,7 +53,6 @@ const Header = ({ data }) => {
             alt="logo"
             className="w-60 pr-4"
           />
-          {/* <h1 className={`${fonts.inter} pt-5 text-8xl`}>{title}</h1> */}
           <Navbar />
         </div>
       </div>

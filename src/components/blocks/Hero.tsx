@@ -32,21 +32,21 @@ const Hero = ({ data }: { data: PageBlocksHero }) => {
                   {card.tagline} {`#slide${index + 1}`}
                 </p>
                 <h1 className="mb-5 text-5xl font-bold">{card.headline}</h1>
-                <button className="glass btn text-white">Get Started</button>
+                <button className="btn glass text-white">Get Started</button>
               </div>
             </div>
             <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
               <a
                 href={`#slide${index}`}
                 onClick={() => changeIndex(index - 1)}
-                className="btn-circle btn"
+                className="btn btn-circle"
               >
                 ❮
               </a>
               <a
                 href={`#slide${index}`}
                 onClick={() => changeIndex(index + 1)}
-                className="btn-circle btn"
+                className="btn btn-circle"
               >
                 ❯
               </a>

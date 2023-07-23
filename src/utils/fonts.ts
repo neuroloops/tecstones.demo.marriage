@@ -1,11 +1,16 @@
 import { Inter, Gwendolyn, Roboto, Cardo } from "next/font/google"
 
+
+
 export const gwendolyn = Gwendolyn({ subsets: ["latin"], weight: ["700"], variable: "--font-heading", display: 'swap' })
 
-export const inter = Inter({ subsets: ["latin"] })
 
-export const roboto = Roboto({ weight: ["400"], subsets: ["latin"], })
+export const roboto = Roboto({ weight: ["400"], subsets: ["latin"], variable: "--font-main", display: 'swap' })
 
-export const cardo = Cardo({ subsets: ["latin"], weight: ["400"] })
+export const inter = Inter({ subsets: ["latin"], variable: "--font-main", display: 'swap' })
 
-export const fonts = { gwendolyn: gwendolyn.className, inter: inter.className, roboto: roboto.className, cardo: cardo.className }
+
+
+export const fonts = { heading: gwendolyn.variable, main: inter.variable }
+
+

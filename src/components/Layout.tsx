@@ -24,7 +24,7 @@ const Layout = (props: any) => {
         <title>{head}</title>
       </Head>
       <div
-        className={`${fonts.roboto} flex min-h-screen w-screen flex-col items-center justify-between bg-green-400 `}
+        className={`flex min-h-screen w-screen flex-col items-center justify-between bg-green-400 font-main `}
       >
         <Header data={data} />
         <Image

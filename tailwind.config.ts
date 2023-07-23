@@ -11,6 +11,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['var(--font-heading)'],
+        main: ['var(--font-main)'],
       },
       fontSize: {
         xxs: ['8px', '11px']

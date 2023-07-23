@@ -1,7 +1,5 @@
-import { cardo } from "@/utils/fonts"
-
 export const Footer = () => {
-  const h3 = "text-2xl pb-4 " + cardo.className
+  const h3 = "text-2xl pb-4"
 
   return (
     <footer id="footer" className="p-4">
@@ -16,7 +14,7 @@ export const Footer = () => {
           </p>
         </div>
         <div>
-          <h3 className={`${h3}`}>Contact Us</h3>
+          <h3 className={h3}>Contact Us</h3>
           <p>
             Address: <br />
             60 29th Street San Francisco

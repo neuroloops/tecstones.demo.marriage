@@ -1,14 +1,12 @@
 import "@/styles/global.css"
 import React from "react"
-import { gwendolyn } from "@/utils/fonts"
-
-//display debug screens if in development
+import { fonts } from "@/utils/fonts"
 
 const debug = process.env.NODE_ENV === "development" ? "debug-screens" : ""
 
 const App = ({ Component, pageProps }) => {
   return (
-    <div className={`${gwendolyn.variable} ${debug}`}>
+    <div className={`${fonts.main} ${fonts.heading} ${debug}`}>
       <Component {...pageProps} />
     </div>
   )

@@ -2,7 +2,7 @@ import type { Page, PageBlocks } from "../../tina/__generated__/types"
 import Hero from "./blocks/Hero"
 import Testimonial from "./blocks/Testimonial"
 import Footer from "./blocks/Footer"
-
+import Service from "./blocks/Service"
 import { tinaField } from "tinacms/dist/react"
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
@@ -27,6 +27,8 @@ const Block = (block: PageBlocks) => {
       return <Hero data={block} />
     case "PageBlocksTestimonial":
       return <Testimonial data={block} />
+    case "PageBlocksService":
+      return <Service data={block} />
     // case "PageBlocksFooter":
     //   return <Footer data={block} />
     default:

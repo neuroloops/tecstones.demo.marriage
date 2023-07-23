@@ -36,7 +36,6 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
                   data-tina-field={tinaField(testimonial, "image")}
                 >
                   <Image
-                    // fill={true}
                     height={150}
                     width={150}
                     alt="testimonial"

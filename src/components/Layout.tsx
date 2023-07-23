@@ -6,19 +6,15 @@ import { useTina } from "tinacms/dist/react"
 import layoutData from "../../content/global/index.json"
 import { client } from "../../tina/__generated__/client"
 import Footer from "./Footer"
-import { FaBeer } from "react-icons/fa"
-import { FcAndroidOs } from "react-icons/fc"
+import { Gwendolyn } from "next/font/google"
 import Header from "./Header"
 import Buttons from "./Buttons"
+import CardServices from "./CardServices"
 
 const Layout = (props: any) => {
   const { children, head } = props
 
   const data = layoutData
-  const { NODE_ENV } = process.env
-
-  //display debug screens if in development
-  const debug = NODE_ENV === "development" ? "debug-screens" : ""
 
   return (
     <>
@@ -28,7 +24,7 @@ const Layout = (props: any) => {
         <title>{head}</title>
       </Head>
       <div
-        className={`${fonts.roboto} flex min-h-screen w-screen flex-col items-center justify-between bg-green-400 ${debug}`}
+        className={`${fonts.roboto} flex min-h-screen w-screen flex-col items-center justify-between bg-green-400 `}
       >
         <Header data={data} />
         <Image
@@ -38,22 +34,11 @@ const Layout = (props: any) => {
           alt="background image"
           className="w-screen "
         />
-        <div className=" mt-36 h-screen">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente,
-          aliquid? image
-          <p>
-            <FaBeer /> test
-          </p>
-          <p className="center flex">
-            I use
-            <FcAndroidOs />
-            <span>fdfds</span>
-          </p>
+        <div>
+          <main className={`w-screen`}>{children}</main>
         </div>
-        <Buttons data="test">Enquire Now </Buttons>
-        <Footer />
 
-        {/* <main className={`${debug} w-screen`}>{children}</main> */}
+        <Footer />
       </div>
     </>
   )

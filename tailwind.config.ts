@@ -1,8 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 /** @type {import('tailwindcss').Config} */
-const Color = require('color')
 
-// const darken = (clr, val) => Color(clr).darken(val).hex()
+
 
 export default {
   content: [
@@ -10,11 +9,13 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        heading: ['var(--font-heading)'],
+      },
       fontSize: {
         xxs: ['8px', '11px']
       },
       colors: {
-
         'main': {
           500: 'hsl(9, 100%, 60%)',
           800: 'hsl(9, 100%, 45%)',

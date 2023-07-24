@@ -2,10 +2,7 @@ export type iService = {
   title: string
   description: string
   button: string
-  image: {
-    src: string
-    alt: string
-  }
+  image: string
 }
 
 

@@ -11,8 +11,8 @@ const CardServices = ({ service }: { service: iService }) => {
       <Image
         height={224}
         width={224}
-        alt={image?.alt}
-        src={image?.src}
+        alt={`${title} image`}
+        src={image}
         className="h-56 w-56 rounded-xl object-cover"
         data-tina-field={tinaField(service, "image")}
       />

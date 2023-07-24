@@ -7,7 +7,6 @@ import { client } from "../../tina/__generated__/client"
 import { Blocks } from "../components/blocks-renderer"
 
 export default function Home(props) {
-  // data passes though in production mode and data is updated to the sidebar data in edit-mode
   const { data } = useTina({
     query: props.query,
     variables: props.variables,

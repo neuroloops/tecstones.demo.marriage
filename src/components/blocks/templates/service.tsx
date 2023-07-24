@@ -37,26 +37,12 @@ const serviceTemplate: Template = {
           name: "button",
         },
         {
-          type: "object",
+          type: "image",
           label: "Image",
           name: "image",
-          fields: [
-            {
-              name: "src",
-              label: "Image Source",
-              type: "image",
-            },
-            {
-              name: "url",
-              label: "url",
-              type: "string",
-            },
-            {
-              name: "alt",
-              label: "Alt Text",
-              type: "string",
-            },
-          ],
+          ui: {
+            label: "Image",
+          },
         },
       ],
     },

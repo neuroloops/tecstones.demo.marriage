@@ -22,10 +22,7 @@ const Layout = (props: any) => {
       >
         <Header data={data} />
 
-        <div>
-          <main className={`w-screen`}>{children}</main>
-        </div>
-
+        <main className={`w-screen`}>{children}</main>
         <Footer />
       </div>
     </>

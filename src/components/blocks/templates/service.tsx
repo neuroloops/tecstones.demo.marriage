@@ -1,6 +1,6 @@
 import { Template } from "tinacms"
 
-export const serviceTemplate: Template = {
+const serviceTemplate: Template = {
   name: "service",
   label: "Service",
   fields: [
@@ -9,7 +9,17 @@ export const serviceTemplate: Template = {
       label: "Services",
       name: "services",
       list: true,
-
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title }
+        },
+        defaultItem: {
+          title: "Service title",
+          description: "Service description",
+          alt: "service picture",
+          button: "Inquire now",
+        },
+      },
       fields: [
         {
           type: "string",
@@ -30,13 +40,6 @@ export const serviceTemplate: Template = {
           type: "object",
           label: "Image",
           name: "image",
-          ui: {
-            visualSelector: true,
-            previewSrc: "https://i.pravatar.cc/150?u=fake@",
-            defaultItem: {
-              alt: "profile picture",
-            },
-          },
           fields: [
             {
               name: "src",

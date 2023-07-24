@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout"
 import Head from "next/head"
+import Image from "next/image"
 import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
@@ -13,23 +14,23 @@ export default function Home(props) {
     data: props.data,
   })
 
-  const { title, body } = data.page
+  const { title, src } = data.page
 
   return (
     <Layout head={title}>
       <Head data-tina-field={tinaField(data.page, "title")}>
         <TinaMarkdown content={title} />
       </Head>
+
+      <Image
+        src={src}
+        width={904}
+        height={296}
+        alt="hero image"
+        className=" h-[70vh] min-h-[150px] w-screen object-cover"
+      />
+
       <Blocks {...data.page} />
-
-      <h2 data-tina-field={tinaField(data.page, "title")}>
-        <TinaMarkdown content={title} />
-        {title}
-      </h2>
-
-      <div data-tina-field={tinaField(data.page, "body")}>
-        <TinaMarkdown content={body} />
-      </div>
     </Layout>
   )
 }

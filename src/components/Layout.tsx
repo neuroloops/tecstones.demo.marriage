@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Image from "next/image"
 import layoutData from "../../content/global/index.json"
 import { client } from "../../tina/__generated__/client"
 
@@ -19,16 +18,9 @@ const Layout = (props: any) => {
         <title>{head}</title>
       </Head>
       <div
-        className={`flex min-h-screen w-screen flex-col items-center justify-between bg-green-400 font-main `}
+        className={`flex min-h-screen w-screen flex-col items-center justify-between bg-white font-main`}
       >
         <Header data={data} />
-        <Image
-          src="/uploads/pexels-hebert-santos-6514287.jpg"
-          width={904}
-          height={296}
-          alt="background image"
-          className="w-screen "
-        />
 
         <div>
           <main className={`w-screen`}>{children}</main>

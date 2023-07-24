@@ -1,4 +1,3 @@
-// import { gwendolyn, roboto, cardo } from "@/utils/fonts"
 import Image from "next/image"
 
 import { tinaField } from "tinacms/dist/react"
@@ -12,8 +11,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   return (
     <section className="body-font text-gray-600" id="testimonial">
       <div className="container mx-auto px-5 py-24">
-        <div className="-m-4 flex flex-wrap">
-          <h1>hello</h1>
+        <div className="-m-4 flex flex-wrap justify-around">
           {testimonials.map((testimonial: iTestimonial, key: number) => {
             const { author, image, quote } = testimonial
 
@@ -23,10 +21,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
               "https://i.pravatar.cc/150?u=fake@" + author
 
             return (
-              <div
-                className="mb-6 w-full p-4 sm:w-1/2 lg:mb-0 lg:w-1/3"
-                key={key}
-              >
+              <div className="mb-6 w-72  p-4  lg:mb-0  " key={key}>
                 <div
                   className="h-full text-center"
                   data-tina-field={tinaField(testimonial, "image")}

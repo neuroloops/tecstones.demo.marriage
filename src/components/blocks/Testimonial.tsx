@@ -9,8 +9,9 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   const { testimonials } = data
 
   return (
-    <section className="body-font text-gray-600" id="testimonial">
+    <section id="testimonials">
       <div className="container mx-auto px-5 py-24">
+        <h2> Testimonials</h2>
         <div className="-m-4 flex flex-wrap justify-around">
           {testimonials.map((testimonial: iTestimonial, key: number) => {
             const { author, image, quote } = testimonial
@@ -50,12 +51,12 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
                       <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                     </>
                   )}
-                  <h2
+                  <h3
                     className="title-font text-sm font-medium tracking-wider text-gray-900"
                     data-tina-field={tinaField(testimonial, "author")}
                   >
                     {author}
-                  </h2>
+                  </h3>
                 </div>
               </div>
             )

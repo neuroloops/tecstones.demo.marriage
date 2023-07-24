@@ -5,9 +5,14 @@ import { PageBlocksService } from "../../../tina/__generated__/types"
 import Buttons from "../Buttons"
 
 const CardServices = ({ service }: { service: iService }) => {
-  const { title, description, image, button } = service
+  const { title, description, button } = service
+  const image = service.image || ""
+
   return (
-    <div className="flex w-64 flex-col content-center bg-white p-4 text-center text-black hover:shadow-xl">
+    <div
+      className="flex w-64 flex-col content-center bg-white  pt-6 text-center text-black hover:shadow-xl"
+      id="services"
+    >
       <Image
         height={224}
         width={224}
@@ -16,7 +21,6 @@ const CardServices = ({ service }: { service: iService }) => {
         className="h-56 w-56 rounded-xl object-cover"
         data-tina-field={tinaField(service, "image")}
       />
-
       <div
         className="mt-2  text-xl"
         data-tina-field={tinaField(service, "title")}
@@ -35,14 +39,15 @@ const CardServices = ({ service }: { service: iService }) => {
 
 const Service = ({ data: { services } }: { data: PageBlocksService }) => {
   return (
-    <section className="body-font text-gray-600" id="testimonial">
+    <section id="services">
       <div className="container mx-auto px-5 py-24">
         <div className="-m-4 ">
-          <h2 className={`text-center font-heading text-5xl`}>Weddings</h2>
-
-          {services.map((service: iService, key: number) => {
-            return <CardServices key={key} service={service} />
-          })}
+          <h2>Weddings</h2>
+          <div className="flex flex-wrap justify-around">
+            {services.map((service: iService, key: number) => {
+              return <CardServices key={key} service={service} />
+            })}
+          </div>
         </div>
       </div>
     </section>

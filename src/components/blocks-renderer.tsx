@@ -1,9 +1,7 @@
-import type { Page, PageBlocks } from "../../tina/__generated__/types"
-import Hero from "./blocks/Hero"
-import Testimonial from "./blocks/Testimonial"
-import Footer from "./blocks/Footer"
-import Service from "./blocks/Service"
+import React from "react"
 import { tinaField } from "tinacms/dist/react"
+import type { Page, PageBlocks } from "../../tina/__generated__/types"
+import blocks from "./blocks"
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
   return (
@@ -22,16 +20,9 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
 }
 
 const Block = (block: PageBlocks) => {
-  switch (block.__typename) {
-    case "PageBlocksHero":
-      return <Hero data={block} />
-    case "PageBlocksTestimonial":
-      return <Testimonial data={block} />
-    case "PageBlocksService":
-      return <Service data={block} />
-    // case "PageBlocksFooter":
-    //   return <Footer data={block} />
-    default:
-      return null
-  }
+  const blockName = block.__typename
+  const cleanBlockName = blockName.replace("PageBlocks", "")
+
+  if (cleanBlockName in blocks)
+    return React.createElement(blocks[cleanBlockName], { data: block })
 }

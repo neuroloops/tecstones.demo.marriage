@@ -1,15 +1,10 @@
 // import { gwendolyn, roboto, cardo } from "@/utils/fonts"
 import Image from "next/image"
-import { Template } from "tinacms"
+
 import { tinaField } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { PageBlocksTestimonial } from "../../../tina/__generated__/types"
-
-type iTestimonial = {
-  author: string
-  image: { src: string; url: string }
-  quote: string
-}
+import { iTestimonial } from "@/types/types"
 
 const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   const { testimonials } = data
@@ -18,6 +13,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
     <section className="body-font text-gray-600" id="testimonial">
       <div className="container mx-auto px-5 py-24">
         <div className="-m-4 flex flex-wrap">
+          <h1>hello</h1>
           {testimonials.map((testimonial: iTestimonial, key: number) => {
             const { author, image, quote } = testimonial
 
@@ -76,64 +72,3 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
 }
 
 export default Testimonial
-
-export const TestimonialBlockSchema: Template = {
-  name: "testimonial",
-  label: "Testimonial",
-  fields: [
-    {
-      type: "object",
-      label: "Testimonials",
-      name: "testimonials",
-      list: true,
-      ui: {
-        previewSrc: "https://i.pravatar.cc/150?u=fake@",
-        itemProps: (item) => {
-          return { label: item?.author }
-        },
-      },
-      fields: [
-        {
-          type: "string",
-          label: "Author",
-          name: "author",
-        },
-        {
-          type: "string",
-          label: "Quote",
-          name: "quote",
-          ui: {},
-        },
-        {
-          type: "object",
-          label: "Image",
-          name: "image",
-          ui: {
-            visualSelector: true,
-            previewSrc: "https://i.pravatar.cc/150?u=fake@",
-            defaultItem: {
-              alt: "profile picture",
-            },
-          },
-          fields: [
-            {
-              name: "src",
-              label: "Image Source",
-              type: "image",
-            },
-            {
-              name: "url",
-              label: "url",
-              type: "string",
-            },
-            {
-              name: "alt",
-              label: "Alt Text",
-              type: "string",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-}

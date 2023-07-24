@@ -1,16 +1,36 @@
-import { Template } from "tinacms"
-// import { tinaField } from "tinacms/dist/react"
-// import { TinaMarkdown } from "tinacms/dist/rich-text"
+import { iService } from "@/types/types"
+import Image from "next/image"
+import { tinaField } from "tinacms/dist/react"
 import { PageBlocksService } from "../../../tina/__generated__/types"
-import CardServices from "../CardServices"
+import Buttons from "../Buttons"
 
-type iService = {
-  title: string
-  description: string
-  image: {
-    src: string
-    alt: string
-  }
+const CardServices = ({ service }: { service: iService }) => {
+  const { title, description, image, button } = service
+  return (
+    <div className="flex w-64 flex-col content-center bg-white p-4 text-center text-black hover:shadow-xl">
+      <Image
+        height={224}
+        width={224}
+        alt={image.alt}
+        src={image.src}
+        className="h-56 w-56 rounded-xl object-cover"
+        data-tina-field={tinaField(service, "image")}
+      />
+
+      <div
+        className="mt-2  text-xl"
+        data-tina-field={tinaField(service, "title")}
+      >
+        {title}
+      </div>
+      <div className="my-4" data-tina-field={tinaField(service, "description")}>
+        {description}
+      </div>
+      <Buttons className="px-4 py-2 text-xs">
+        <span data-tina-field={tinaField(service, "button")}>{button}</span>
+      </Buttons>
+    </div>
+  )
 }
 
 const Service = ({ data: { services } }: { data: PageBlocksService }) => {
@@ -21,67 +41,11 @@ const Service = ({ data: { services } }: { data: PageBlocksService }) => {
           <h2 className={`text-center font-heading text-5xl`}>Weddings</h2>
 
           {services.map((service: iService, key: number) => {
-            return <CardServices key={key} data={service} />
+            return <CardServices key={key} service={service} />
           })}
         </div>
       </div>
     </section>
   )
 }
-
 export default Service
-
-export const ServiceBlockSchema: Template = {
-  name: "service",
-  label: "Service",
-  fields: [
-    {
-      type: "object",
-      label: "Services",
-      name: "services",
-      list: true,
-
-      fields: [
-        {
-          type: "string",
-          label: "Title",
-          name: "title",
-        },
-        {
-          type: "string",
-          label: "Description",
-          name: "description",
-        },
-        {
-          type: "object",
-          label: "Image",
-          name: "image",
-          ui: {
-            visualSelector: true,
-            previewSrc: "https://i.pravatar.cc/150?u=fake@",
-            defaultItem: {
-              alt: "profile picture",
-            },
-          },
-          fields: [
-            {
-              name: "src",
-              label: "Image Source",
-              type: "image",
-            },
-            {
-              name: "url",
-              label: "url",
-              type: "string",
-            },
-            {
-              name: "alt",
-              label: "Alt Text",
-              type: "string",
-            },
-          ],
-        },
-      ],
-    },
-  ],
-}

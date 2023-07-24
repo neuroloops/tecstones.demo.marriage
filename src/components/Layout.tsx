@@ -1,15 +1,10 @@
-// import Head from "next/head";
-import { fonts } from "@/utils/fonts"
 import Head from "next/head"
 import Image from "next/image"
-import { useTina } from "tinacms/dist/react"
 import layoutData from "../../content/global/index.json"
 import { client } from "../../tina/__generated__/client"
+
 import Footer from "./Footer"
-import { Gwendolyn } from "next/font/google"
 import Header from "./Header"
-import Buttons from "./Buttons"
-import CardServices from "./CardServices"
 
 const Layout = (props: any) => {
   const { children, head } = props
@@ -34,6 +29,7 @@ const Layout = (props: any) => {
           alt="background image"
           className="w-screen "
         />
+
         <div>
           <main className={`w-screen`}>{children}</main>
         </div>

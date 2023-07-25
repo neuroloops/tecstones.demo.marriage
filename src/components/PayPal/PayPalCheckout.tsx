@@ -8,42 +8,43 @@ function PayPalCheckout({ data }) {
   const [transactionStatus, setTransactionStatus] = useState(null)
   const [order, setOrder] = useState(null)
 
-  useEffect(() => {
-    window.paypal
-      .Buttons({
-        createOrder: (data, actions, err) => {
-          return actions.order.create({
-            intent: "CAPTURE",
-            purchase_units: [
-              {
-                description: product,
-                amount: {
-                  currency_code: currency,
-                  value: amount,
-                },
-              },
-            ],
-          })
-        },
-        style: {
-          layout: "horizontal",
-          color: "white",
-          shape: "pill",
-          label: "paypal",
-          tagline: true,
-        },
-        onApprove: async (data, actions) => {
-          setOrder(await actions.order.capture())
+  //use paypal sdk to create buttons
 
-          console.log("success", order)
-          setTransactionStatus("success")
-        },
-        onError: (err) => {
-          console.log(err)
-          setTransactionStatus("failure")
-        },
-      })
-      .render(paypal.current)
+  useEffect(() => {
+    // window.paypal
+    //   .Buttons({
+    //     createOrder: (data, actions, err) => {
+    //       return actions.order.create({
+    //         intent: "CAPTURE",
+    //         purchase_units: [
+    //           {
+    //             description: product,
+    //             amount: {
+    //               currency_code: currency,
+    //               value: amount,
+    //             },
+    //           },
+    //         ],
+    //       })
+    //     },
+    //     style: {
+    //       layout: "horizontal",
+    //       color: "white",
+    //       shape: "pill",
+    //       label: "paypal",
+    //       tagline: true,
+    //     },
+    //     onApprove: async (data, actions) => {
+    //       setOrder(await actions.order.capture())
+    //       console.log("success", order)
+    //       setTransactionStatus("success")
+    //     },
+    //     onError: (err) => {
+    //       console.log(err)
+    //       setTransactionStatus("failure")
+    //     },
+    //   })
+    //   .render(paypal.current)
   }, [product, amount, currency, order])
 
   if (transactionStatus === "success") {
@@ -61,7 +62,7 @@ function PayPalCheckout({ data }) {
         src="https://www.paypal.com/sdk/js?client-id=AXnN0xf_pKOsECC4t9d5FobWPFyDoTRV2ppzR-9IDa6j_BBKUpV9Axa-HKLvHbKYMPlj3mIDZWrha-eB&currency=CAD"
         async
       ></script>
-      <div ref={paypal} className="w-1/4"></div>
+      <div ref={paypal}></div>
     </div>
   )
 }

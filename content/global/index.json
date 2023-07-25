@@ -10,5 +10,9 @@
       }
     ]
   },
-  "title": "afg Marriage"
+  "title": "afg Marriage",
+  "PayPal": {
+    "successMessage": "Thank you for your purchase.",
+    "failureMessage": "something went wrong, your payment wasn't processed."
+  }
 }

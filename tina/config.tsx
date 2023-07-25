@@ -72,6 +72,23 @@ export default defineConfig({
             ],
           },
           {
+            type: "object",
+            label: "Paypal information",
+            name: "PayPal",
+            fields: [
+              {
+                type: "string",
+                label: "Success Message",
+                name: "successMessage",
+              },
+              {
+                type: "string",
+                label: "Failure Message",
+                name: "failureMessage",
+              },
+            ],
+          },
+          {
             type: "string",
             label: "Facebook",
             name: "facebook",

@@ -5,6 +5,7 @@ import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
 import { Blocks } from "../components/blocks-renderer"
+import PayPalCheckout from "../components/PayPal/PayPalCheckout"
 
 export default function Home(props) {
   const { data } = useTina({
@@ -14,6 +15,11 @@ export default function Home(props) {
   })
 
   const { title, src } = data.page
+  const product = {
+    product: "test",
+    amount: 1230,
+    currency: "CAD",
+  }
 
   return (
     <Layout head={title}>
@@ -29,7 +35,13 @@ export default function Home(props) {
         className=" h-[70vh] min-h-[150px] w-screen object-cover"
       />
 
-      <Blocks {...data.page} />
+      <div className="App">
+        <div className="App-header">
+          <PayPalCheckout data={product} />
+        </div>
+      </div>
+
+      <Blocks {...data.page} className="debug md:w-11/12" />
     </Layout>
   )
 }
@@ -38,6 +50,12 @@ export const getStaticProps = async () => {
   const { data, query, variables } = await client.queries.page({
     relativePath: "home.mdx",
   })
+
+  const test = await client.queries.global({
+    relativePath: "index.json",
+  })
+  console.log("data2", test.data.global.PayPal.successMessage)
+  // console.log("salut")
 
   return {
     props: {

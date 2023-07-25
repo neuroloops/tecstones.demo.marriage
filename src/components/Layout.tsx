@@ -41,7 +41,6 @@ export const getStaticProps = async () => {
       data,
       query,
       variables,
-      //myOtherProp: 'some-other-data',
     },
   }
 }

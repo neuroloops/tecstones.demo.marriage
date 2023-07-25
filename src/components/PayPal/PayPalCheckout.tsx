@@ -30,7 +30,7 @@ function PayPalCheckout({ data }) {
           color: "white",
           shape: "pill",
           label: "paypal",
-          tagline: false,
+          tagline: true,
         },
         onApprove: async (data, actions) => {
           setOrder(await actions.order.capture())
@@ -44,7 +44,7 @@ function PayPalCheckout({ data }) {
         },
       })
       .render(paypal.current)
-  }, [product, amount, currency])
+  }, [product, amount, currency, order])
 
   if (transactionStatus === "success") {
     console.log("order", order)

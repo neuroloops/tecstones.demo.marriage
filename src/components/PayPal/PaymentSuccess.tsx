@@ -1,4 +1,5 @@
 import { client } from "../../../tina/__generated__/client"
+
 type iProps = {
   message?: string
   order: {
@@ -15,8 +16,6 @@ type iProps = {
 }
 
 const PaymentSuccess = ({ message, order }: iProps) => {
-  console.log(message, order)
-  console.log(order.id)
   return (
     <div>
       <p>transaction id: {order.id}</p>

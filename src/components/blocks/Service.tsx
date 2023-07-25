@@ -3,6 +3,7 @@ import Image from "next/image"
 import { tinaField } from "tinacms/dist/react"
 import { PageBlocksService } from "../../../tina/__generated__/types"
 import Buttons from "../Buttons"
+import Modal from "../Modal"
 
 const CardServices = ({ service }: { service: iService }) => {
   const { title, description, button } = service
@@ -30,9 +31,9 @@ const CardServices = ({ service }: { service: iService }) => {
       <div className="my-4" data-tina-field={tinaField(service, "description")}>
         {description}
       </div>
-      <Buttons className="px-4 py-2 text-xs">
+      <Modal service={service}>
         <span data-tina-field={tinaField(service, "button")}>{button}</span>
-      </Buttons>
+      </Modal>
     </div>
   )
 }

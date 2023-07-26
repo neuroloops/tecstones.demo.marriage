@@ -2,8 +2,7 @@ import Image from "next/image"
 import { useState } from "react"
 import Navbar from "./Navbar"
 
-import { LuMail } from "react-icons/lu"
-import { EnvelopeClosedIcon, ImageIcon, SunIcon } from "@radix-ui/react-icons"
+import { EnvelopeClosedIcon } from "@radix-ui/react-icons"
 
 const Header = ({ data }) => {
   const bgMain = "bg-main-500"

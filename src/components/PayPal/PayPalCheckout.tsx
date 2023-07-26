@@ -53,7 +53,7 @@ function PayPalCheckout({ data }) {
   }
 
   if (transactionStatus === "failure") {
-    return <PaymentFailure order={order} />
+    // return <PaymentFailure order={order} />
   }
 
   return (

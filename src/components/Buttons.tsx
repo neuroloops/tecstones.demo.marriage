@@ -4,7 +4,7 @@ const Buttons = ({
   children,
   className = "",
 }: {
-  children: any
+  children: JSX.Element
   className?: string
 }) => {
   return (

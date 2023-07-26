@@ -2,10 +2,18 @@ import React from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { Cross2Icon } from "@radix-ui/react-icons"
 import Buttons from "./Buttons"
-import PaymentSuccess from "./PayPal/PaymentSuccess"
+// import PaymentSuccess from "./PayPal/PaymentSuccess"
 import PayPalCheckout from "./PayPal/PayPalCheckout"
 
-const DialogDemo = (props) => {
+type iDialogDemoProps = {
+  children: JSX.Element
+  service: {
+    title: string
+    description: string
+  }
+}
+
+const DialogDemo = (props: iDialogDemoProps) => {
   const btnTxt = props.children
   const service = props.service
 
@@ -15,17 +23,17 @@ const DialogDemo = (props) => {
     currency: "CAD",
   }
 
-  const order = {
-    id: "123",
-    status: "success",
-    payer: {
-      email_address: "random@mail.com",
-      name: {
-        given_name: "Pedro",
-        surname: "Duarte",
-      },
-    },
-  }
+  // const order = {
+  //   id: "123",
+  //   status: "success",
+  //   payer: {
+  //     email_address: "random@mail.com",
+  //     name: {
+  //       given_name: "Pedro",
+  //       surname: "Duarte",
+  //     },
+  //   },
+  // }
 
   return (
     <Dialog.Root>

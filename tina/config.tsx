@@ -2,7 +2,7 @@ import { defineConfig } from "tinacms"
 import templates from "../src/components/blocks/templates"
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main"
+// const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main"
 
 export default defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,

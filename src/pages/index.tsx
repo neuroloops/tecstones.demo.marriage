@@ -13,6 +13,9 @@ export default function Home(props) {
     data: props.data,
   })
 
+  //tailwind debug
+  const debug: string = process.env.NODE_ENV === "development" ? "debug" : ""
+
   const { title, src } = data.page
 
   return (
@@ -33,7 +36,7 @@ export default function Home(props) {
         <div className="App-header"></div>
       </div>
 
-      <Blocks {...data.page} className="debug md:w-11/12" />
+      <Blocks {...data.page} className={`${debug} md:w-11/12`} />
     </Layout>
   )
 }
@@ -43,11 +46,10 @@ export const getStaticProps = async () => {
     relativePath: "home.mdx",
   })
 
-  const test = await client.queries.global({
-    relativePath: "index.json",
-  })
-  console.log("data2", test.data.global.PayPal.successMessage)
-  // console.log("salut")
+  // const test = await client.queries.global({
+  //   relativePath: "index.json",
+  // })
+  // console.log("data2", test.data.global.PayPal.successMessage)
 
   return {
     props: {

@@ -5,9 +5,13 @@ import { client } from "../../tina/__generated__/client"
 import Footer from "./Footer"
 import Header from "./Header"
 
-const Layout = (props: any) => {
-  const { children, head } = props
-
+const Layout = ({
+  children,
+  head,
+}: {
+  children: JSX.Element[] | JSX.Element
+  head?: string
+}) => {
   const data = layoutData
 
   return (

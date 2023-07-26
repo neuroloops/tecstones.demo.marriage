@@ -10,10 +10,10 @@ const config = {
 
     ]
   },
-  i18n: {
-    locales: ["en", "ps_AF"],
-    defaultLocale: "en",
-  },
+  // i18n: {
+  //   locales: ["en", "ps_AF"],
+  //   defaultLocale: "en",
+  // },
   images: {
     remotePatterns: [
       {

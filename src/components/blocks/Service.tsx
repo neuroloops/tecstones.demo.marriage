@@ -2,7 +2,6 @@ import { iService } from "@/types/types"
 import Image from "next/image"
 import { tinaField } from "tinacms/dist/react"
 import { PageBlocksService } from "../../../tina/__generated__/types"
-import Buttons from "../Buttons"
 import Modal from "../Modal"
 
 const CardServices = ({ service }: { service: iService }) => {

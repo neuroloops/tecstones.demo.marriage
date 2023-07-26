@@ -1,7 +1,6 @@
-import { useTina } from "tinacms/dist/react"
 import { client } from "../../../tina/__generated__/client"
 
-const PaymentFailure = (props) => {
+const PaymentFailure = (props: JSX.Element) => {
   console.log(props)
 
   return (

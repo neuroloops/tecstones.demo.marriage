@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const navItems: Array<string> = [
   "services",
-  "about us",
+  "about12 us",
   "why us",
   "gallery",
   "videos",

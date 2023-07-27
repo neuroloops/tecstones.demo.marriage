@@ -1,8 +1,8 @@
 import Link from "next/link"
 
-const navItems: Array<string> = [
+const navItems: string[] = [
   "services",
-  "about12 us",
+  "about us",
   "why us",
   "gallery",
   "videos",

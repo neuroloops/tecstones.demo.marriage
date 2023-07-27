@@ -3,7 +3,7 @@ import Image from "next/image"
 import { tinaField } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { PageBlocksTestimonial } from "../../../tina/__generated__/types"
-import { iTestimonial } from "@/types/types"
+import { TTestimonial } from "@/types/types"
 
 const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   const { testimonials } = data
@@ -13,7 +13,7 @@ const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
       <div className="container mx-auto px-5 py-24">
         <h2> Testimonials</h2>
         <div className="-m-4 flex flex-wrap justify-around">
-          {testimonials.map((testimonial: iTestimonial, key: number) => {
+          {testimonials.map((testimonial: TTestimonial, key: number) => {
             const { author, image, quote } = testimonial
 
             const imgSrc =

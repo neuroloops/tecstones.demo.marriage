@@ -1,4 +1,4 @@
-export type iService = {
+export type TService = {
   title: string
   description: string
   button: string
@@ -6,7 +6,7 @@ export type iService = {
 }
 
 
-type iTestimonial = {
+export type TTestimonial = {
   author: string
   image: { src: string; url: string }
   quote: string

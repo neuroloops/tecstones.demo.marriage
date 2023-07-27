@@ -12,7 +12,7 @@ const Video = ({ data }: { data: PageBlocksVideo }) => {
   return (
     <section id="videos">
       <div className="mx-auto px-5 py-24">
-        <h2>Weddings</h2>
+        <h2>Videos</h2>
         <div className="flex max-w-full flex-wrap justify-around  gap-2">
           {videos.map((video: TVideo, key: number) => {
             return (

@@ -15,21 +15,6 @@ const config = {
   //   defaultLocale: "en",
   // },
   images: {
-    // remotePatterns: [
-    //   {
-    //     protocol: 'http',
-    //     hostname: 'localhost',
-    //     port: '3000',
-
-    //   },
-    //   {
-    //     protocol: 'http',
-    //     hostname: 'localhost',
-    //     port: '3000',
-    //   },
-
-
-    // ],
     domains: ['assets.tina.io', 'i.pravatar.cc', 'localhost:3000']
   },
   eslint: {

@@ -10,7 +10,7 @@ const CardServices = ({ service }: { service: TService }) => {
 
   return (
     <div
-      className="flex w-64 flex-col content-center bg-white  pt-6 text-center text-black hover:shadow-xl"
+      className="item-center flex w-64 flex-col bg-white  py-6 text-center text-black hover:shadow-xl"
       id="services"
     >
       <Image
@@ -18,7 +18,7 @@ const CardServices = ({ service }: { service: TService }) => {
         width={224}
         alt={`${title} image`}
         src={image}
-        className="h-56 w-56 rounded-xl object-cover"
+        className="mx-auto h-56 w-56 rounded-xl object-cover"
         data-tina-field={tinaField(service, "image")}
       />
       <div
@@ -40,14 +40,12 @@ const CardServices = ({ service }: { service: TService }) => {
 const Service = ({ data: { services } }: { data: PageBlocksService }) => {
   return (
     <section id="services">
-      <div className="container mx-auto px-5 py-24">
-        <div className="-m-4 ">
-          <h2>Weddings</h2>
-          <div className="flex flex-wrap justify-around">
-            {services.map((service: TService, key: number) => {
-              return <CardServices key={key} service={service} />
-            })}
-          </div>
+      <div className="mx-auto px-5 py-24">
+        <h2>Weddings</h2>
+        <div className="flex flex-wrap justify-around">
+          {services.map((service: TService, key: number) => {
+            return <CardServices key={key} service={service} />
+          })}
         </div>
       </div>
     </section>

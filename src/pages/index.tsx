@@ -4,7 +4,8 @@ import Image from "next/image"
 import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
-import { Blocks } from "../components/blocks-renderer"
+import { Blocks } from "@/components/blocks-renderer"
+import YouTubePLayer from "@/components/YouTubePLayer"
 
 export default function Home(props) {
   const { data } = useTina({
@@ -45,11 +46,6 @@ export const getStaticProps = async () => {
   const { data, query, variables } = await client.queries.page({
     relativePath: "home.mdx",
   })
-
-  // const test = await client.queries.global({
-  //   relativePath: "index.json",
-  // })
-  // console.log("data2", test.data.global.PayPal.successMessage)
 
   return {
     props: {

@@ -1,3 +1,4 @@
+import videoTemplate from "./video"
 import footerTemplate from "./footer"
 import heroTemplate from "./hero"
 import serviceTemplate from "./service"
@@ -8,6 +9,7 @@ const templates = [
   testimonialTemplate,
   footerTemplate,
   heroTemplate,
+  videoTemplate,
 ]
 
 export default templates

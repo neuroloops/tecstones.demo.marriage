@@ -46,11 +46,6 @@ export const getStaticProps = async () => {
     relativePath: "home.mdx",
   })
 
-  // const test = await client.queries.global({
-  //   relativePath: "index.json",
-  // })
-  // console.log("data2", test.data.global.PayPal.successMessage)
-
   return {
     props: {
       data,

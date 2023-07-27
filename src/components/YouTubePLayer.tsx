@@ -21,7 +21,8 @@ const YouTubePLayer = ({
 
   const videoId = getYouTubeVideoId(videoUrl)
   const playerSize = 1.4
-  const url = `https://youtube.com/embed/${videoId}?playlist=${videoId}&loop=1`
+  const url = `https://youtube.com/embed/${videoId}?&autoplay=1&playlist=${videoId}&loop=1`
+
   return (
     <iframe
       width={560 / playerSize}
@@ -29,7 +30,7 @@ const YouTubePLayer = ({
       src={url}
       className="  rounded-xl"
       title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
+      allow="autoplay"
     />
   )
 }

@@ -641,6 +641,57 @@
                   "blocks",
                   "Video"
                 ]
+              },
+              {
+                "name": "twoColumns",
+                "label": "two Columns",
+                "ui": {},
+                "fields": [
+                  {
+                    "type": "string",
+                    "label": "Title",
+                    "name": "title",
+                    "namespace": [
+                      "page",
+                      "blocks",
+                      "twoColumns",
+                      "title"
+                    ],
+                    "searchable": true
+                  },
+                  {
+                    "type": "rich-text",
+                    "label": "content",
+                    "name": "text",
+                    "namespace": [
+                      "page",
+                      "blocks",
+                      "twoColumns",
+                      "text"
+                    ],
+                    "searchable": true,
+                    "parser": {
+                      "type": "mdx"
+                    }
+                  },
+                  {
+                    "name": "src",
+                    "label": "Image Source",
+                    "type": "image",
+                    "namespace": [
+                      "page",
+                      "blocks",
+                      "twoColumns",
+                      "src"
+                    ],
+                    "searchable": false
+                  }
+                ],
+                "namespace": [
+                  "page",
+                  "blocks",
+                  "twoColumns"
+                ]
               }
             ],
             "namespace": [
@@ -704,7 +755,8 @@
         "testimonial": "PageBlocksTestimonial",
         "footer": "PageBlocksFooter",
         "hero": "PageBlocksHero",
-        "Video": "PageBlocksVideo"
+        "Video": "PageBlocksVideo",
+        "twoColumns": "PageBlocksTwoColumns"
       }
     },
     "Page": {
@@ -3339,6 +3391,62 @@
         ]
       },
       {
+        "kind": "ObjectTypeDefinition",
+        "interfaces": [],
+        "directives": [],
+        "name": {
+          "kind": "Name",
+          "value": "PageBlocksTwoColumns"
+        },
+        "fields": [
+          {
+            "kind": "FieldDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "title"
+            },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "text"
+            },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "JSON"
+              }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "src"
+            },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          }
+        ]
+      },
+      {
         "kind": "UnionTypeDefinition",
         "name": {
           "kind": "Name",
@@ -3379,6 +3487,13 @@
             "name": {
               "kind": "Name",
               "value": "PageBlocksVideo"
+            }
+          },
+          {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "PageBlocksTwoColumns"
             }
           }
         ]
@@ -4081,6 +4196,108 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
+          "value": "RichTextFilter"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "startsWith"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "eq"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "exists"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "Boolean"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
+          "value": "PageBlocksTwoColumnsFilter"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "title"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "StringFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "text"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "RichTextFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "src"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "ImageFilter"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
           "value": "PageBlocksFilter"
         },
         "fields": [
@@ -4151,6 +4368,20 @@
               "name": {
                 "kind": "Name",
                 "value": "PageBlocksVideoFilter"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "twoColumns"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "PageBlocksTwoColumnsFilter"
               }
             }
           }
@@ -5593,6 +5824,57 @@
         "kind": "InputObjectTypeDefinition",
         "name": {
           "kind": "Name",
+          "value": "PageBlocksTwoColumnsMutation"
+        },
+        "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "title"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "text"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "JSON"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "src"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "String"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "kind": "InputObjectTypeDefinition",
+        "name": {
+          "kind": "Name",
           "value": "PageBlocksMutation"
         },
         "fields": [
@@ -5663,6 +5945,20 @@
               "name": {
                 "kind": "Name",
                 "value": "PageBlocksVideoMutation"
+              }
+            }
+          },
+          {
+            "kind": "InputValueDefinition",
+            "name": {
+              "kind": "Name",
+              "value": "twoColumns"
+            },
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "PageBlocksTwoColumnsMutation"
               }
             }
           }

@@ -1,4 +1,4 @@
-import debug from "debug"
+import divDebug from "@/utils/divDebug"
 
 export const Footer = () => {
   const h3 = "text-2xl pb-4"
@@ -6,9 +6,9 @@ export const Footer = () => {
   return (
     <footer id="footer" className="   p-4">
       <div
-        className={`text-gray-500" flex flex-wrap justify-between gap-4 text-sm md:pr-24 ${debug}`}
+        className={`text-gray-500" flex flex-wrap justify-between gap-4 text-sm md:pr-24 ${divDebug}`}
       >
-        <div className={`md:basis-1/3 ${debug}`}>
+        <div className={`md:basis-1/3 ${divDebug}`}>
           <h3 className={h3}>Afg Marriage</h3>
           <p>
             We&apos;re Tilia, a team of photographers & videographers. Sed ut

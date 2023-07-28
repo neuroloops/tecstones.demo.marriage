@@ -5,7 +5,7 @@ import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
 import { Blocks } from "@/components/blocks-renderer"
-import debug from "debug"
+import divDebug from "@/utils/divDebug"
 
 export default function Home(props) {
   const { data } = useTina({
@@ -15,7 +15,7 @@ export default function Home(props) {
   })
 
   const { title, src } = data.page
-
+  console.log(divDebug)
   return (
     <Layout head={title}>
       <Head data-tina-field={tinaField(data.page, "title")}>
@@ -30,7 +30,7 @@ export default function Home(props) {
         className=" h-[70vh] min-h-[150px] w-screen min-w-full object-cover"
       />
 
-      <Blocks {...data.page} className={`${debug} md:w-11/12`} />
+      <Blocks {...data.page} className={`${divDebug} md:w-11/12`} />
     </Layout>
   )
 }

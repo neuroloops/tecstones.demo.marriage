@@ -2,7 +2,7 @@ export const Footer = () => {
   const h3 = "text-2xl pb-4"
 
   return (
-    <footer id="footer" className="debug p-4">
+    <footer id="footer" className="p-4">
       <div className="flex flex-wrap justify-between gap-4 pr-24 text-sm text-gray-500">
         <div className="basis-1/3">
           <h3 className={h3}>Afg Marriage</h3>

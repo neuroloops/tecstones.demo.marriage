@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { useState } from "react"
 import Navbar from "./Navbar"
 
@@ -7,8 +6,8 @@ import { EnvelopeClosedIcon } from "@radix-ui/react-icons"
 const Header = ({ data }) => {
   const bgMain = "bg-main-500"
 
-  const bgTransparent = "bg-gradient-to-b from-gray-500/80 to-transparent "
-  // const bgTransparent = "bg-blend-darken"
+  const bgTransparent =
+    "md:bg-gradient-to-b from-gray-500/80 to-transparent md:bg-transparent bg-main-500"
 
   const [bgColor, setBgColor] = useState(bgTransparent)
 
@@ -24,17 +23,16 @@ const Header = ({ data }) => {
         setVisible("flex")
       }
     }
-
     window.addEventListener("scroll", changeBackground)
   }
 
   return (
     <header
-      className={`fixed flex w-screen text-white transition-all duration-1000 ${bgColor}`}
+      className={`fixed flex w-screen text-white transition-none duration-1000 md:transition-all ${bgColor} `}
     >
       <div className="mx-auto">
         <div
-          className={`${visible} w-full justify-between px-32 pt-2 transition-all duration-1000`}
+          className={`${visible} hidden w-full justify-between px-32 pt-2 transition-all duration-1000 md:flex`}
         >
           <div>social medias</div>
           <div className="w-fill">
@@ -44,16 +42,7 @@ const Header = ({ data }) => {
             </p>
           </div>
         </div>
-        <div className={`mx-auto flex  max-w-7xl py-4`}>
-          <Image
-            src="/logo.webp"
-            width={904}
-            height={296}
-            alt="logo"
-            className="w-60 pr-4"
-          />
-          <Navbar />
-        </div>
+        <Navbar />
       </div>
     </header>
   )

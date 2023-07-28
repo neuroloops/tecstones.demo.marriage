@@ -32,7 +32,7 @@ const Header = ({ data }) => {
     <header
       className={`fixed flex w-screen text-white transition-all duration-1000 ${bgColor}`}
     >
-      <div className=" mx-auto">
+      <div className="mx-auto">
         <div
           className={`${visible} w-full justify-between px-32 pt-2 transition-all duration-1000`}
         >
@@ -44,7 +44,7 @@ const Header = ({ data }) => {
             </p>
           </div>
         </div>
-        <div className={`mx-auto flex w-full max-w-7xl py-4`}>
+        <div className={`mx-auto flex  max-w-7xl py-4`}>
           <Image
             src="/logo.webp"
             width={904}

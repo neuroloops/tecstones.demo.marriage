@@ -7,7 +7,7 @@ const debugScreen =
 
 const App = ({ Component, pageProps }) => {
   return (
-    <div className={`${fonts.main} ${fonts.heading} ${debugScreen}`}>
+    <div className={`${fonts.main} ${fonts.heading} ${debugScreen} `}>
       <Component {...pageProps} />
     </div>
   )

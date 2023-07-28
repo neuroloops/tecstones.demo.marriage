@@ -22,11 +22,11 @@ const Layout = ({
         <title>{head}</title>
       </Head>
       <div
-        className={`flex min-h-screen w-screen flex-col items-center justify-between bg-white font-main`}
+        className={`flex min-h-screen  flex-col items-center justify-between bg-white font-main`}
       >
         <Header data={data} />
 
-        <main className={`w-screen`}>{children}</main>
+        <main>{children}</main>
         <Footer />
       </div>
     </>

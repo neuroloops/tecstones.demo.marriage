@@ -1,9 +1,9 @@
 import Image from "next/image"
 
+import { TTestimonial } from "@/types/types"
 import { tinaField } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { PageBlocksTestimonial } from "../../../tina/__generated__/types"
-import { TTestimonial } from "@/types/types"
 
 const Testimonial = ({ data }: { data: PageBlocksTestimonial }) => {
   const { testimonials } = data

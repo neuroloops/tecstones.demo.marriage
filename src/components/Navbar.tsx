@@ -44,7 +44,7 @@ const NavLink = ({
   )
 }
 
-const BurgerMenu = ({ setBurger }: { setBurger: typeof useState<boolean> }) => {
+const BurgerMenu = ({ setBurger }) => {
   return (
     <ul className="flex h-screen w-full flex-col flex-wrap items-center justify-center  pt-5 [&>li]:p-4">
       <NavLink {...{ setBurger }} />

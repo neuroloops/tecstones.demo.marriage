@@ -1,10 +1,14 @@
+import debug from "debug"
+
 export const Footer = () => {
   const h3 = "text-2xl pb-4"
 
   return (
-    <footer id="footer" className="p-4">
-      <div className="flex justify-between gap-4 pr-24 text-sm text-gray-500">
-        <div className="basis-1/3">
+    <footer id="footer" className="   p-4">
+      <div
+        className={`text-gray-500" flex flex-wrap justify-between gap-4 text-sm md:pr-24 ${debug}`}
+      >
+        <div className={`md:basis-1/3 ${debug}`}>
           <h3 className={h3}>Afg Marriage</h3>
           <p>
             We&apos;re Tilia, a team of photographers & videographers. Sed ut
@@ -28,7 +32,7 @@ export const Footer = () => {
           </p>
         </div>
         <div>
-          <h3 className={`${h3}`}>Information</h3>
+          <h3 className={`${h3} `}>Information</h3>
           <ul>
             <li>Product Support</li>
             <li>Checkout</li>

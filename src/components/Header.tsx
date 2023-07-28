@@ -23,7 +23,6 @@ const Header = ({ data }) => {
         setVisible("flex")
       }
     }
-
     window.addEventListener("scroll", changeBackground)
   }
 

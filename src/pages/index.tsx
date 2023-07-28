@@ -5,7 +5,7 @@ import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
 import { Blocks } from "@/components/blocks-renderer"
-import YouTubePLayer from "@/components/YouTubePLayer"
+import debug from "debug"
 
 export default function Home(props) {
   const { data } = useTina({
@@ -13,9 +13,6 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   })
-
-  //tailwind debug
-  const debug: string = process.env.NODE_ENV === "development" ? "debug" : ""
 
   const { title, src } = data.page
 

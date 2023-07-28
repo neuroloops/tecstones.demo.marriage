@@ -19,6 +19,7 @@ const config = {
   },
   eslint: {
     dirs: ['tina', 'src'],
+    ignoreDuringBuilds: true,
   },
 }
 

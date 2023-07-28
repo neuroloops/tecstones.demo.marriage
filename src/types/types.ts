@@ -11,3 +11,8 @@ export type TTestimonial = {
   image: { src: string; url: string }
   quote: string
 }
+
+
+export type TClassName = {
+  className?: string
+}

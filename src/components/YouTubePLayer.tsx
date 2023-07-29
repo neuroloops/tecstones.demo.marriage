@@ -1,11 +1,9 @@
-import { tinaField } from "tinacms/dist/react"
+import { useState } from "react"
 
-const YouTubePLayer = ({
-  videoUrl = "https://youtu.be/BSMcK2cqwio",
-}: {
-  videoUrl?: string
-}) => {
-  function getYouTubeVideoId(url: string) {
+const YouTubePLayer = ({ videoUrl }: { videoUrl?: string }) => {
+  const [playerSize, setPlayerSize] = useState(1.4)
+
+  const getYouTubeVideoId = (url: string) => {
     // Regular expression to extract the video ID from the URL
     const regex =
       /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&\n?#]+)/
@@ -19,8 +17,18 @@ const YouTubePLayer = ({
     }
   }
 
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => {
+      if (window.screen.width <= 450) {
+        setPlayerSize(2.4)
+      } else {
+        setPlayerSize(1.4)
+      }
+    })
+  }
+
   const videoId = getYouTubeVideoId(videoUrl)
-  const playerSize = 1.4
+
   const url = `https://youtube.com/embed/${videoId}?&autoplay=1&playlist=${videoId}&loop=1`
 
   return (

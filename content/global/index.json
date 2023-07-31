@@ -1,7 +1,7 @@
 {
   "facebook": "https://www.facebook.com/",
-  "twitter": "/",
-  "instagram": "/",
+  "twitter": "https://twitter.com/",
+  "instagram": "https://www.instagram.com/",
   "NavLink": {
     "nav": [
       {
@@ -10,9 +10,10 @@
       }
     ]
   },
-  "title": "afg Marriage",
+  "title": "Ashinayi",
   "PayPal": {
     "successMessage": "Thank you for your purchase.",
     "failureMessage": "something went wrong, your payment wasn't processed."
-  }
+  },
+  "email": "contact@ashinayi.com"
 }

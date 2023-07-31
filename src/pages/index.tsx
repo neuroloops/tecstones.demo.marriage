@@ -1,13 +1,12 @@
-import Layout from "@/components/Layout"
 import Head from "next/head"
 import Image from "next/image"
 import React, { useEffect } from "react"
 import { tinaField, useTina } from "tinacms/dist/react"
 import { TinaMarkdown } from "tinacms/dist/rich-text"
 import { client } from "../../tina/__generated__/client"
+
+import Layout from "@/components/Layout"
 import { Blocks } from "@/components/blocks-renderer"
-import divDebug from "@/utils/divDebug"
-// import { useStore } from "zustand"
 import useStore from "@/zustand"
 
 export default function Home(props) {
@@ -18,11 +17,22 @@ export default function Home(props) {
   })
   const { title, src } = data.page
 
-  const updateMessage = useStore((state) => state.updateMessage)
+  const setMessage = useStore((state) => state.setMessage)
+  const setSiteName = useStore((state) => state.setSiteName)
+  const setSocials = useStore((state) => state.setSocials)
 
   useEffect(() => {
-    updateMessage(props.paypal.successMessage)
-  }, [props.paypal.successMessage, updateMessage])
+    const socials = {
+      facebook: props.global.facebook,
+      instagram: props.global.instagram,
+      twitter: props.global.twitter,
+      email: props.global.email,
+    }
+
+    setSiteName(props.global.title)
+    setMessage(props.global.PayPal.successMessage)
+    setSocials(socials)
+  }, [""])
 
   return (
     <Layout head={title}>
@@ -37,7 +47,7 @@ export default function Home(props) {
         className=" h-[70vh] min-h-[150px] w-screen min-w-full object-cover"
       />
 
-      <Blocks {...data.page} className={`${divDebug} md:w-11/12`} />
+      <Blocks {...data.page} className={` md:w-11/12`} />
     </Layout>
   )
 }
@@ -52,7 +62,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      paypal: global.data.global.PayPal,
+      global: global.data.global,
       data,
       query,
       variables,

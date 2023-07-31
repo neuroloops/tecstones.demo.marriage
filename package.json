@@ -1,7 +1,8 @@
 {
-  "name": "afg_marriage",
+  "name": "ahinayi",
   "version": "0.1.0",
   "private": true,
+  "license": "Proprietary software",
   "scripts": {
     "dev": "clear && tinacms dev -c \"next dev\"",
     "build": "tinacms build && next build",
@@ -36,7 +37,7 @@
     "eslint": "^8.43.0",
     "eslint-plugin-markdown": "^3.0.0",
     "postcss-import": "^15.1.0",
-    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss-debug-screens": "^2.2.1"
   }
 }

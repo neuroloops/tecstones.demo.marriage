@@ -103,6 +103,11 @@ export default defineConfig({
             label: "Instagram",
             name: "instagram",
           },
+          {
+            type: "string",
+            label: "Email",
+            name: "email",
+          },
         ],
       },
       {

@@ -45,11 +45,10 @@ function PayPalCheckout({ data }) {
         },
         onApprove: async (data, actions) => {
           setOrder(await actions.order.capture())
-          console.log("success", order)
+
           setTransactionStatus("success")
         },
         onError: (err) => {
-          console.log(err)
           setTransactionStatus("failure")
         },
       })
@@ -57,7 +56,6 @@ function PayPalCheckout({ data }) {
   }, [order, price, product])
 
   if (transactionStatus === "success") {
-    console.log("order", order)
     return <PaymentSuccess order={order} />
   }
 

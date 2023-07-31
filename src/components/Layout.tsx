@@ -2,7 +2,6 @@ import Head from "next/head"
 import layoutData from "../../content/global/index.json"
 import { client } from "../../tina/__generated__/client"
 
-import Footer from "./Footer"
 import Header from "./Header"
 
 const Layout = ({
@@ -27,7 +26,6 @@ const Layout = ({
         <Header data={data} />
 
         <main>{children}</main>
-        <Footer />
       </div>
     </>
   )

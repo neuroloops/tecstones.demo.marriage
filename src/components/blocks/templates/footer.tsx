@@ -5,48 +5,14 @@ const footerTemplate: Template = {
   label: "Footer",
   fields: [
     {
-      type: "object",
-      label: "hero cards",
-      name: "HeroCards",
-      list: true,
-      ui: {
-        defaultItem: {
-          tagline: "Here's some text above the other text",
-          headline: "This Big Text is Totally Awesome",
-        },
-        itemProps: (item) => {
-          return { label: item?.headline }
-        },
-      },
-      fields: [
-        {
-          type: "string",
-          label: "Tagline",
-          name: "tagline",
-        },
-        {
-          type: "string",
-          label: "Headline",
-          name: "headline",
-        },
-        {
-          type: "object",
-          label: "Image",
-          name: "image",
-          fields: [
-            {
-              name: "src",
-              label: "Image Source",
-              type: "image",
-            },
-            {
-              name: "alt",
-              label: "Alt Text",
-              type: "string",
-            },
-          ],
-        },
-      ],
+      type: "rich-text",
+      label: "Outro",
+      name: "outro",
+    },
+    {
+      type: "rich-text",
+      label: "Contact Us",
+      name: "contactUs",
     },
   ],
 }

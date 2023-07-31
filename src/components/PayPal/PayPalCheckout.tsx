@@ -1,9 +1,15 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
+
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    paypal: any
+  }
+}
 
 import PaymentSuccess from "./PaymentSuccess"
 
 function PayPalCheckout({ data }) {
-  console.log(data)
   const { product, price } = data
   const currency = "CAD"
 

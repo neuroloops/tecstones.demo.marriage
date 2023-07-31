@@ -1,7 +1,6 @@
 import useStore from "@/zustand"
-import { client } from "../../../tina/__generated__/client"
 
-type iProps = {
+type TProps = {
   order: {
     id: string
     status: string
@@ -15,7 +14,7 @@ type iProps = {
   }
 }
 
-const PaymentSuccess = ({ order }: iProps) => {
+const PaymentSuccess = ({ order }: TProps) => {
   const paypalMessage = useStore((state) => state.paypalMessage)
 
   return (

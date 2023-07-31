@@ -1,4 +1,4 @@
-import React from "react"
+import { client } from "../../tina/__generated__/client"
 import * as Dialog from "@radix-ui/react-dialog"
 import { Cross2Icon } from "@radix-ui/react-icons"
 import Buttons from "./Buttons"
@@ -16,8 +16,6 @@ type iDialogDemoProps = {
 const DialogDemo = (props: iDialogDemoProps) => {
   const btnTxt = props.children
   const service = props.service
-
-  console.log(props)
 
   return (
     <Dialog.Root>
@@ -54,3 +52,17 @@ const DialogDemo = (props: iDialogDemoProps) => {
 }
 
 export default DialogDemo
+
+export const getStaticProps = async () => {
+  const { data, query, variables } = await client.queries.global({
+    relativePath: "index.json",
+  })
+
+  return {
+    props: {
+      data,
+      query,
+      variables,
+    },
+  }
+}

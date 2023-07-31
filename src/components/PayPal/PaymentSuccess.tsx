@@ -1,7 +1,7 @@
+import useStore from "@/zustand"
 import { client } from "../../../tina/__generated__/client"
 
 type iProps = {
-  message?: string
   order: {
     id: string
     status: string
@@ -15,13 +15,14 @@ type iProps = {
   }
 }
 
-const PaymentSuccess = ({ message, order }: iProps) => {
+const PaymentSuccess = ({ order }: iProps) => {
+  const paypalMessage = useStore((state) => state.paypalMessage)
+
   return (
     <div>
-      <p>{message}</p>
       <p>
-        {order.payer.name.given_name} {order.payer.name.surname}, Thank you for
-        your purchase! <br />
+        {order.payer.name.given_name} {order.payer.name.surname},{" "}
+        {paypalMessage} <br />
         your order is now {order.status.toLowerCase()} !
         <p>
           Email: {order.payer.email_address} {""}
@@ -33,15 +34,3 @@ const PaymentSuccess = ({ message, order }: iProps) => {
 }
 
 export default PaymentSuccess
-
-export const getStaticProps = async () => {
-  const data = await client.queries.global({
-    relativePath: "index.json",
-  })
-  console.log("data", data)
-  return {
-    props: {
-      data,
-    },
-  }
-}

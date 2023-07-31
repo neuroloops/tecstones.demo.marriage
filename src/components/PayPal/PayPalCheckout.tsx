@@ -4,7 +4,7 @@ import PaymentSuccess from "./PaymentSuccess"
 
 function PayPalCheckout({ data }) {
   console.log(data)
-  const { title, price } = data
+  const { product, price } = data
   const currency = "CAD"
 
   const paypal = useRef()
@@ -21,7 +21,7 @@ function PayPalCheckout({ data }) {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: title,
+                description: product,
                 amount: {
                   currency_code: currency,
                   value: price,

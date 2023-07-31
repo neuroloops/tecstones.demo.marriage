@@ -1,42 +1,34 @@
 import { TClassName } from "@/types/types"
 import goToLink from "@/utils/goToLink"
-import Link from "next/link"
+
 import { twMerge } from "tailwind-merge"
 import Image from "next/image"
 import { useState } from "react"
 
-const navItems: string[] = [
-  "services",
-  "about us",
-  "why us",
-  "gallery",
-  "videos",
-  "testimonials",
-  "contact us",
+const navItems: { name: string; link: string }[] = [
+  { name: "home", link: "home" },
+  { name: "services", link: "services" },
+  { name: "videos", link: "videos" },
+  { name: "testimonials", link: "testimonials" },
+  { name: "about us", link: "footer" },
 ]
 
-const NavLink = ({
-  setBurger,
-  className = "",
-}: {
-  className?: string
-  setBurger: any
-}) => {
+const NavLink = ({ setBurger }: { className?: string; setBurger: any }) => {
   return (
     <>
-      {navItems.map((item: string, index: number) => {
+      {navItems.map((item, index: number) => {
         return (
           <li
-            className={(twMerge("cursor-pointer "), className)}
+            className="cursor-pointer uppercase"
             key={index}
             onClick={() => {
-              goToLink(item)
+              goToLink(item.link)
               if (setBurger) {
                 setBurger(false)
               }
             }}
           >
-            {item}
+            {item.name}
           </li>
         )
       })}
@@ -68,9 +60,7 @@ const Navbar = ({ className = "" }: TClassName) => {
   const [burgerOpen, setBurger] = useState<boolean>(false)
   const showHide = burgerOpen ? "hidden" : "block"
   return (
-    <div
-      className={` flex w-full max-w-7xl items-center  justify-between py-4 text-center`}
-    >
+    <div className={` mx-auto flex  max-w-7xl items-center py-4 text-center`}>
       <Image
         src="/logo.webp"
         width={904}
@@ -82,16 +72,8 @@ const Navbar = ({ className = "" }: TClassName) => {
         className={`ml-6 md:hidden ${showHide}`}
         {...{ burgerOpen, setBurger }}
       />
-      <nav
-        className={twMerge(
-          "w-full self-center backdrop-opacity-60 ",
-          className
-        )}
-      >
+      <nav className={twMerge("backdrop-opacity-60 ", className)}>
         <ul className="hidden justify-center gap-4 md:flex">
-          <li className="cursor-pointer uppercase">
-            <Link href={`/`}>Home</Link>
-          </li>
           <NavLink {...{ setBurger }} />
         </ul>
       </nav>

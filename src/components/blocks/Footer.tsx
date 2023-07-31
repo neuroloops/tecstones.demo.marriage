@@ -21,9 +21,9 @@ const Footer = ({ data }: { data: PageBlocksFooter }) => {
       <div className="flex justify-between gap-4 pr-24 text-sm text-gray-500">
         <div className="basis-1/3">
           <h3 className={h3}>{siteName}</h3>
-          <p data-tina-field={tinaField(data, "outro")}>
+          <div data-tina-field={tinaField(data, "outro")}>
             <TinaMarkdown content={data.outro} />
-          </p>
+          </div>
         </div>
         <div>
           <h3 className={`${h3}`}>Contact Us</h3>

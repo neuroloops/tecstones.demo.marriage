@@ -40,6 +40,7 @@ export default function Home(props) {
         <TinaMarkdown content={title} />
       </Head>
       <Image
+        id="home"
         src={src}
         width={904}
         height={296}

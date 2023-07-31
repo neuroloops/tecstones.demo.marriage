@@ -39,50 +39,43 @@ const Header = ({ data }) => {
     <header
       className={`fixed flex w-screen text-white transition-none duration-1000 md:transition-all ${bgColor} `}
     >
-      <div className="mx-auto">
+      <div className="mx-auto w-screen">
         <div
-          className={`${visible} hidden w-full justify-between px-32 pt-2 transition-all duration-1000 md:flex`}
+          className={`md:${visible}  w hidden justify-between px-32 pt-2 transition-all duration-1000`}
         >
-          <div>
-            <ul className="flex gap-4">
-              {socials.facebook.length > 1 && (
-                <li>
-                  <a
-                    href={socials.facebook}
-                    className="flex items-center gap-2 "
-                  >
-                    <Image
-                      src="/logoW-facebook.svg"
-                      alt="facebook icon"
-                      height={16}
-                      width={16}
-                    />
-                    Facebook{" "}
-                  </a>
-                </li>
-              )}
-              {socials.twitter.length > 1 && (
-                <li>
-                  <a
-                    href={socials.twitter}
-                    className="flex items-center gap-2 "
-                  >
-                    <TwitterLogoIcon /> twitter
-                  </a>
-                </li>
-              )}
-              {socials.instagram.length > 1 && (
-                <li>
-                  <a
-                    href={socials.instagram}
-                    className="flex items-center gap-2 "
-                  >
-                    <InstagramLogoIcon /> Instagram
-                  </a>
-                </li>
-              )}
-            </ul>
-          </div>
+          <ul className="flex gap-4">
+            {socials.facebook.length > 1 && (
+              <li>
+                <a href={socials.facebook} className="flex items-center gap-2 ">
+                  <Image
+                    src="/logoW-facebook.svg"
+                    alt="facebook icon"
+                    height={16}
+                    width={16}
+                  />
+                  Facebook{" "}
+                </a>
+              </li>
+            )}
+            {socials.twitter.length > 1 && (
+              <li>
+                <a href={socials.twitter} className="flex items-center gap-2 ">
+                  <TwitterLogoIcon /> twitter
+                </a>
+              </li>
+            )}
+            {socials.instagram.length > 1 && (
+              <li>
+                <a
+                  href={socials.instagram}
+                  className="flex items-center gap-2 "
+                >
+                  <InstagramLogoIcon /> Instagram
+                </a>
+              </li>
+            )}
+          </ul>
+
           <div className="w-fill">
             <p className="flex items-center gap-2 ">
               <EnvelopeClosedIcon />

@@ -5,7 +5,7 @@ import { PageBlocksTwoColumns } from "../../../tina/__generated__/types"
 
 const twoColumns = ({ data }: { data: PageBlocksTwoColumns }) => {
   return (
-    <section id="2col">
+    <section id="whyUs">
       <div className="mx-auto px-5 py-24">
         <h2 data-tina-field={tinaField(data, "title")}>{data.title}</h2>
         <div className="flex max-w-full flex-row flex-wrap justify-around gap-2">

@@ -15,7 +15,7 @@ type TProps = {
 }
 
 const PaymentSuccess = ({ order }: TProps) => {
-  const paypalMessage = useStore((state) => state.paypalMessage)
+  const paypalMessage = useStore((state) => state.globals.paypalMessage)
 
   return (
     <div>

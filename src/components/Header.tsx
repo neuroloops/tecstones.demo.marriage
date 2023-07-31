@@ -12,7 +12,7 @@ import Navbar from "./Navbar"
 const Header = () => {
   const bgMain = "bg-main-500"
 
-  const email = useStore((state) => state.socials.email)
+  const email = useStore((state) => state.globals.socials.email)
 
   const bgTransparent =
     "md:bg-gradient-to-b from-gray-500/80 to-transparent md:bg-transparent bg-main-500"
@@ -20,7 +20,7 @@ const Header = () => {
   const [bgColor, setBgColor] = useState(bgTransparent)
   const [visible, setVisible] = useState("flex")
 
-  const socials = useStore((state) => state.socials)
+  const socials = useStore((state) => state.globals.socials)
 
   if (typeof window !== `undefined`) {
     const changeBackground = () => {

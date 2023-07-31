@@ -60,7 +60,7 @@ const BurgerIcon = ({ setBurger, burgerOpen, className }) => {
 const Navbar = ({ className = "" }: TClassName) => {
   const [burgerOpen, setBurger] = useState<boolean>(false)
   const showHide = burgerOpen ? "hidden" : "block"
-  const logo = useStore((state) => state.logo)
+  const logo = useStore((state) => state.globals.logo)
 
   return (
     <div

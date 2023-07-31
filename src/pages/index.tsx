@@ -16,23 +16,22 @@ export default function Home(props) {
     data: props.data,
   })
   const { title, src } = data.page
-  console.log(props.global)
-  const setMessage = useStore((state) => state.setMessage)
-  const setSiteName = useStore((state) => state.setSiteName)
-  const setSocials = useStore((state) => state.setSocials)
-  const setLogo = useStore((state) => state.setLogo)
+  const setGlobals = useStore((state) => state.setGlobals)
 
   useEffect(() => {
-    const socials = {
-      facebook: props.global.facebook,
-      instagram: props.global.instagram,
-      twitter: props.global.twitter,
-      email: props.global.email,
+    const globals = {
+      paypalMessage: props.global.PayPal.successMessage,
+      siteName: props.global.title,
+      logo: props.global.logo,
+      socials: {
+        facebook: props.global.facebook,
+        instagram: props.global.instagram,
+        twitter: props.global.twitter,
+        email: props.global.email,
+      },
     }
-    setLogo(props.global.logo)
-    setSiteName(props.global.title)
-    setMessage(props.global.PayPal.successMessage)
-    setSocials(socials)
+
+    setGlobals(globals)
   }, [""])
 
   return (

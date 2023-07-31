@@ -23,7 +23,7 @@ const Layout = ({
       <div
         className={`flex min-h-screen  flex-col items-center justify-between bg-white font-main`}
       >
-        <Header data={data} />
+        <Header />
 
         <main>{children}</main>
       </div>

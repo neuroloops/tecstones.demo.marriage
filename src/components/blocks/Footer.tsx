@@ -12,9 +12,8 @@ import { PageBlocksFooter } from "../../../tina/__generated__/types"
 
 const Footer = ({ data }: { data: PageBlocksFooter }) => {
   const h3 = "text-2xl pb-4 "
-
-  const siteName = useStore((state) => state.siteName)
-  const socials = useStore((state) => state.socials)
+  const globals = useStore((state) => state.globals)
+  const { siteName, socials } = globals
 
   return (
     <footer id="footer" className=" p-4">

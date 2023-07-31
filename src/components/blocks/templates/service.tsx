@@ -27,6 +27,11 @@ const serviceTemplate: Template = {
           name: "title",
         },
         {
+          type: "number",
+          label: "Price",
+          name: "price",
+        },
+        {
           type: "string",
           label: "Description",
           name: "description",

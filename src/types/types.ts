@@ -3,6 +3,7 @@ export type TService = {
   description: string
   button: string
   image: string
+  price: number
 }
 
 

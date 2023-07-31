@@ -18,16 +18,16 @@ type iProps = {
 const PaymentSuccess = ({ message, order }: iProps) => {
   return (
     <div>
-      <p>transaction id: {order.id}</p>
-      <p>
-        email: {order.payer.email_address} {""}
-        name:{order.payer.name.given_name}
-        {""}
-        surname: {order.payer.name.surname}
-      </p>
-      <p>status: {order.status}</p>
-
       <p>{message}</p>
+      <p>
+        {order.payer.name.given_name} {order.payer.name.surname}, Thank you for
+        your purchase! <br />
+        your order is now {order.status.toLowerCase()} !
+        <p>
+          Email: {order.payer.email_address} {""}
+          transaction id: {order.id}
+        </p>
+      </p>
     </div>
   )
 }

@@ -15,7 +15,7 @@ export default function Home(props) {
   })
 
   const { title, src } = data.page
-  console.log(divDebug)
+
   return (
     <Layout head={title}>
       <Head data-tina-field={tinaField(data.page, "title")}>
@@ -45,7 +45,6 @@ export const getStaticProps = async () => {
       data,
       query,
       variables,
-      //myOtherProp: 'some-other-data',
     },
   }
 }

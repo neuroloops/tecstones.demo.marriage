@@ -16,14 +16,13 @@ export default function Home(props) {
     variables: props.variables,
     data: props.data,
   })
-
-  useEffect(() => {
-    updateMessage(props.paypal.successMessage)
-  }, [])
-
   const { title, src } = data.page
 
   const updateMessage = useStore((state) => state.updateMessage)
+
+  useEffect(() => {
+    updateMessage(props.paypal.successMessage)
+  }, [props.paypal.successMessage, updateMessage])
 
   return (
     <Layout head={title}>

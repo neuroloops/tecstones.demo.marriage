@@ -48,7 +48,7 @@ function PayPalCheckout({ data }) {
         },
       })
       .render(paypal.current)
-  }, [""])
+  }, [order, price, product])
 
   if (transactionStatus === "success") {
     console.log("order", order)

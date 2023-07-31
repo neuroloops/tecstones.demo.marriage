@@ -33,6 +33,11 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "image",
+            label: "Logo",
+            name: "logo",
+          },
+          {
             type: "string",
             label: "Title",
             name: "title",

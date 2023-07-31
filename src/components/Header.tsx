@@ -9,7 +9,7 @@ import { useState } from "react"
 import useStore from "@/zustand"
 import Navbar from "./Navbar"
 
-const Header = ({ data }) => {
+const Header = () => {
   const bgMain = "bg-main-500"
 
   const email = useStore((state) => state.socials.email)

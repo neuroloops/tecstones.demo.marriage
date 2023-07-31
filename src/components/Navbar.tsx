@@ -4,6 +4,7 @@ import goToLink from "@/utils/goToLink"
 import { twMerge } from "tailwind-merge"
 import Image from "next/image"
 import { useState } from "react"
+import useStore from "@/zustand"
 
 const navItems: { name: string; link: string }[] = [
   { name: "home", link: "home" },
@@ -59,10 +60,14 @@ const BurgerIcon = ({ setBurger, burgerOpen, className }) => {
 const Navbar = ({ className = "" }: TClassName) => {
   const [burgerOpen, setBurger] = useState<boolean>(false)
   const showHide = burgerOpen ? "hidden" : "block"
+  const logo = useStore((state) => state.logo)
+
   return (
-    <div className={` mx-auto flex  max-w-7xl items-center py-4 text-center`}>
+    <div
+      className={` mx-auto flex  max-w-7xl items-center justify-between py-4 text-center`}
+    >
       <Image
-        src="/logo.webp"
+        src={logo}
         width={904}
         height={296}
         alt="logo"

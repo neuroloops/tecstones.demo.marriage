@@ -16,10 +16,11 @@ export default function Home(props) {
     data: props.data,
   })
   const { title, src } = data.page
-
+  console.log(props.global)
   const setMessage = useStore((state) => state.setMessage)
   const setSiteName = useStore((state) => state.setSiteName)
   const setSocials = useStore((state) => state.setSocials)
+  const setLogo = useStore((state) => state.setLogo)
 
   useEffect(() => {
     const socials = {
@@ -28,7 +29,7 @@ export default function Home(props) {
       twitter: props.global.twitter,
       email: props.global.email,
     }
-
+    setLogo(props.global.logo)
     setSiteName(props.global.title)
     setMessage(props.global.PayPal.successMessage)
     setSocials(socials)

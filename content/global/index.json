@@ -15,5 +15,6 @@
     "successMessage": "Thank you for your purchase.",
     "failureMessage": "something went wrong, your payment wasn't processed."
   },
-  "email": "contact@ashinayi.com"
+  "email": "contact@ashinayi.com",
+  "logo": "/uploads/logo.webp"
 }

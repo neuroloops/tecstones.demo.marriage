@@ -41,7 +41,7 @@ const Header = () => {
     >
       <div className="mx-auto w-screen">
         <div
-          className={`md:${visible}  w hidden justify-between px-32 pt-2 transition-all duration-1000`}
+          className={`md:${visible}  hidden justify-between px-32 pt-2 transition-all duration-1000`}
         >
           <ul className="flex gap-4">
             {socials.facebook.length > 1 && (

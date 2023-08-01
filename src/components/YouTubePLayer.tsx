@@ -1,7 +1,27 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const YouTubePLayer = ({ videoUrl }: { videoUrl?: string }) => {
   const [playerSize, setPlayerSize] = useState(1.4)
+
+  useEffect(() => {
+    checkScreenSize()
+  }, [])
+
+  const checkScreenSize = () => {
+    if (typeof window !== "undefined") {
+      if (window.screen.width <= 450) {
+        setPlayerSize(2.4)
+      } else {
+        setPlayerSize(1.4)
+      }
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => {
+      checkScreenSize()
+    })
+  }
 
   const getYouTubeVideoId = (url: string) => {
     // Regular expression to extract the video ID from the URL
@@ -15,16 +35,6 @@ const YouTubePLayer = ({ videoUrl }: { videoUrl?: string }) => {
       // If the URL is not in the expected format, return null
       return null
     }
-  }
-
-  if (typeof window !== "undefined") {
-    window.addEventListener("resize", () => {
-      if (window.screen.width <= 450) {
-        setPlayerSize(2.4)
-      } else {
-        setPlayerSize(1.4)
-      }
-    })
   }
 
   const videoId = getYouTubeVideoId(videoUrl)

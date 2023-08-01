@@ -64,17 +64,17 @@ const Navbar = ({ className = "" }: TClassName) => {
 
   return (
     <div
-      className={` mx-auto flex  max-w-7xl items-center justify-between py-4 text-center`}
+      className={` mx-auto flex  max-w-7xl items-center justify-around py-4 text-center`}
     >
       <Image
         src={logo}
         width={904}
         height={296}
         alt="logo"
-        className={`w-60 pr-4 ${showHide}`}
+        className={`w-60 pr-4 max-[300px]:hidden  ${showHide}`}
       />
       <BurgerIcon
-        className={`ml-6 md:hidden ${showHide}`}
+        className={`max-[299px]:mx-auto min-[300px]:ml-6 md:hidden ${showHide}`}
         {...{ burgerOpen, setBurger }}
       />
       <nav className={twMerge("backdrop-opacity-60 ", className)}>

@@ -11,14 +11,14 @@ import useStore from "@/zustand"
 import { PageBlocksFooter } from "../../../tina/__generated__/types"
 
 const Footer = ({ data }: { data: PageBlocksFooter }) => {
-  const h3 = "text-2xl pb-4 "
+  const h3 = "text-2xl pb-4 text-center "
   const globals = useStore((state) => state.globals)
   const { siteName, socials } = globals
 
   return (
     <footer id="footer" className=" p-4">
-      <div className="flex justify-between gap-4 pr-24 text-sm text-gray-500">
-        <div className="basis-1/3">
+      <div className="flex flex-wrap justify-between gap-4 text-sm text-gray-500 md:pr-24">
+        <div className="w-full md:basis-1/3">
           <h3 className={h3}>{siteName}</h3>
           <div data-tina-field={tinaField(data, "outro")}>
             <TinaMarkdown content={data.outro} />

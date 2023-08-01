@@ -21,7 +21,7 @@ const Layout = ({
         <title>{head}</title>
       </Head>
       <div
-        className={`flex min-h-screen  flex-col items-center justify-between bg-white font-main`}
+        className={`flex min-h-screen flex-col flex-wrap items-center justify-between bg-white font-main`}
       >
         <Header />
 

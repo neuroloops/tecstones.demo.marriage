@@ -45,10 +45,10 @@ export default function Home(props) {
         width={904}
         height={296}
         alt="hero image"
-        className=" h-[70vh] min-h-[150px] w-screen min-w-full object-cover"
+        className=" h-[70vh] min-h-[150px] w-screen object-cover"
       />
 
-      <Blocks {...data.page} className={` md:w-11/12`} />
+      <Blocks {...data.page} className={` w-screen md:w-11/12`} />
     </Layout>
   )
 }
